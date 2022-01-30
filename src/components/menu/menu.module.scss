@@ -1,0 +1,17 @@
+.navigation {
+  max-width: 520px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+
+    color: #222222;
+  }
+}
