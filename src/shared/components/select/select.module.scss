@@ -1,0 +1,14 @@
+.select {
+  margin-right: 25px;
+  width: fit-content;
+  &_active {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 142.5%;
+
+    margin-top: 5px;
+    color: #5b5b5b;
+    white-space: nowrap;
+  }
+}
