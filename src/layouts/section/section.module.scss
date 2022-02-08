@@ -1,0 +1,21 @@
+.section {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &_content {
+    width: 100%;
+  }
+
+  &_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 31px;
+
+    color: #222222;
+    margin-bottom: 50px;
+  }
+}

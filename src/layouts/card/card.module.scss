@@ -1,0 +1,31 @@
+.card {
+  &_large,
+  &_small,
+  &_middle {
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      object-fit: cover;
+      z-index: -2;
+
+      left: 0;
+      top: 0;
+    }
+  }
+  &_large {
+    padding: 50px;
+    width: 100%;
+  }
+  &_middle {
+    padding: 50px;
+  }
+  &_small {
+    padding: 35px;
+  }
+}
