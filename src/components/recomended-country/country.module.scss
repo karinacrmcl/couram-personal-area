@@ -1,0 +1,119 @@
+.country {
+  &_shadow {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: -1;
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    & h2 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 35px;
+
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    & h4 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 142.5%;
+
+      color: #ffffff;
+      margin: 5px 0;
+      padding: 0;
+    }
+  }
+
+  &_bottom {
+    display: flex;
+    align-items: center;
+
+    margin-top: auto;
+    justify-content: space-between;
+    & svg {
+      width: 24px;
+      height: 24px;
+
+      & path {
+        fill: #d0d0d0;
+      }
+    }
+
+    & p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 142.5%;
+
+      color: #d0d0d0;
+      margin: 5px 0 0;
+      padding: 0;
+    }
+  }
+  &_location {
+    display: flex;
+
+    & p {
+      margin-left: 10px;
+    }
+  }
+  &_state {
+    display: flex;
+    align-items: center;
+
+    max-width: 250px;
+    width: 100%;
+
+    margin-left: 10%;
+    & hr {
+      width: 1px;
+      height: 65px;
+
+      background: #ffffff;
+    }
+
+    &_item {
+      display: flex;
+
+      flex-direction: column;
+      align-items: flex-start;
+
+      & p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 100.5%;
+
+        color: #d0d0d0;
+        padding: 0;
+        margin: 0;
+      }
+
+      & h3 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 37px;
+        letter-spacing: 0.065em;
+
+        color: #ffffff;
+        padding: 0;
+        margin: 10px 0;
+      }
+    }
+  }
+}
