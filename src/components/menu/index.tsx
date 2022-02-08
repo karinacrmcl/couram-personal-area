@@ -7,7 +7,7 @@ type Props = {};
 export function Menu(props: Props) {
   const menuTabs = [
     { name: "Home", link: "/" },
-    { name: "Explore more", link: "" },
+    { name: "Explore more", link: "/explore-more" },
     { name: "Favourites", link: "" },
     { name: "All countries", link: "" },
   ];
@@ -16,9 +16,9 @@ export function Menu(props: Props) {
     <nav className={s.navigation}>
       {menuTabs.map((item, i) => {
         return (
-          <p key={i} className={s.navigation_link}>
-            {item.name}
-          </p>
+          <Link to={item.link} key={i}>
+            <p className={s.navigation_link}>{item.name}</p>
+          </Link>
         );
       })}
     </nav>
