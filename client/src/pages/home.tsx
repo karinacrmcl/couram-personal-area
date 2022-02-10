@@ -7,10 +7,10 @@ import { SearchContainer } from "../containers/search";
 export default function Home() {
   return (
     <div>
-      <MainContainer />
+      {/* <MainContainer />
       <RecomendationsContainer />
       <SearchContainer />
-      <ResultsContainer />
+      <ResultsContainer /> */}
     </div>
   );
 }
