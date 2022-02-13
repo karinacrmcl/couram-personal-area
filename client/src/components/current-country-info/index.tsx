@@ -13,6 +13,7 @@ type Props = {};
 
 export function CurrentCountryInfo(props: Props) {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
+  const isMobile = useMediaQuery({ maxWidth: "450px" });
 
   const countryBasicInfo = [
     { title: "Capital", index: "capital", content: "Vaduz" },
@@ -32,7 +33,7 @@ export function CurrentCountryInfo(props: Props) {
       <CardLayout
         type="large"
         bgUrl="/images/example-bg-1.jpg"
-        styles={{ height: isTablet ? "500px" : "600px" }}
+        styles={{ height: isTablet ? "500px" : isMobile ? "300px" : "600px" }}
       >
         <div className={s.country_container}>
           <h2 className={s.country_title}>Liechtenstein</h2>

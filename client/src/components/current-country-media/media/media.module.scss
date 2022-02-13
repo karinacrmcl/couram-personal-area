@@ -1,5 +1,8 @@
 .media {
   position: relative;
+  @media (max-width: 1200px) {
+    display: none;
+  }
   &_content {
     height: 124.22px;
 

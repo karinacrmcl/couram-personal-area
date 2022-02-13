@@ -1,4 +1,7 @@
 .info {
+  @media (max-width: 850px) {
+    margin-top: 50px;
+  }
   &_content {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { CardLayout } from "../../../layouts/card";
 import { Button } from "../../../shared/components/button";
 import SvgSelector from "../svg-selector";
@@ -7,6 +8,8 @@ import s from "./info.module.scss";
 type Props = {};
 
 export function Information(props: Props) {
+  const isLaptop = useMediaQuery({ maxWidth: "1200px" });
+
   const factsContent = [
     {
       name: "Situation",
@@ -27,7 +30,7 @@ export function Information(props: Props) {
       <CardLayout
         type="small"
         styles={{
-          width: "700px",
+          width: isLaptop ? "100%" : "700px",
           height: "460px",
           boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)",
         }}
