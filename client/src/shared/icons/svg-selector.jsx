@@ -40,19 +40,53 @@ export default function GlobalSelector({ id }) {
 
     case "menu":
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="2.51416"
+            width="21.3333"
+            height="3.55556"
+            rx="1.77778"
+            transform="rotate(45 2.51416 0)"
             fill="#222222"
-            d="M3,8H21a1,1,0,0,0,0-2H3A1,1,0,0,0,3,8Zm18,8H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm0-5H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"
+          />
+          <rect
+            width="21.3333"
+            height="3.55556"
+            rx="1.77778"
+            transform="matrix(-0.707107 0.707107 0.707107 0.707107 15.085 0)"
+            fill="#222222"
           />
         </svg>
       );
     case "close":
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path
+        <svg
+          width="19"
+          height="14"
+          viewBox="0 0 19 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="18.6667" height="3.11111" rx="1.55556" fill="#222222" />
+          <rect
+            y="5.44446"
+            width="18.6667"
+            height="3.11111"
+            rx="1.55556"
             fill="#222222"
-            d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"
+          />
+          <rect
+            y="10.8889"
+            width="18.6667"
+            height="3.11111"
+            rx="1.55556"
+            fill="#222222"
           />
         </svg>
       );

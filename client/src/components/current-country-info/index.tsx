@@ -1,5 +1,6 @@
 import { url } from "inspector";
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { CardLayout } from "../../layouts/card";
 import Favourites from "../../pages/favourites";
 import { Button } from "../../shared/components/button";
@@ -11,6 +12,8 @@ import SvgSelector from "./svg-selector";
 type Props = {};
 
 export function CurrentCountryInfo(props: Props) {
+  const isTablet = useMediaQuery({ maxWidth: "950px" });
+
   const countryBasicInfo = [
     { title: "Capital", index: "capital", content: "Vaduz" },
     { title: "Language", index: "language", content: "German" },
@@ -29,7 +32,7 @@ export function CurrentCountryInfo(props: Props) {
       <CardLayout
         type="large"
         bgUrl="/images/example-bg-1.jpg"
-        styles={{ height: "600px" }}
+        styles={{ height: isTablet ? "500px" : "600px" }}
       >
         <div className={s.country_container}>
           <h2 className={s.country_title}>Liechtenstein</h2>

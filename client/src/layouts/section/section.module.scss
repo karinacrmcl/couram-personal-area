@@ -17,5 +17,9 @@
 
     color: #222222;
     margin-bottom: 50px;
+
+    @media (max-width: 950px) {
+      font-size: 26px;
+    }
   }
 }

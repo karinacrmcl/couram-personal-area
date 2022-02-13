@@ -7,7 +7,7 @@ export function MainContainer() {
   return (
     <SectionLayout title="Today's country">
       <CurrentCountryInfo />
-      <CurrentCountryAddition />
+      {/* <CurrentCountryAddition /> */}
     </SectionLayout>
   );
 }

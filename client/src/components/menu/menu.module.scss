@@ -12,8 +12,8 @@
     justify-content: space-between;
     align-items: center;
     @media (max-width: 850px) {
-      height: 95vh;
-      width: 95%;
+      height: 90vh;
+      width: 90%;
 
       flex-direction: column;
       justify-content: center;
@@ -23,14 +23,14 @@
 
       background: rgba(255, 255, 255, 0.795);
       position: fixed;
-      left: 2.5%;
-      top: 2.5%;
+      left: 5%;
+      top: 5%;
     }
   }
 
   & button {
     display: none;
-    transition: all 0.1s;
+    transition: all 0.3s;
 
     @media (max-width: 850px) {
       display: block;

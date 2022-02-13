@@ -7,8 +7,8 @@ import { SearchContainer } from "../containers/search";
 export default function Home() {
   return (
     <div>
-      {/* <MainContainer />
-      <RecomendationsContainer />
+      <MainContainer />
+      {/*   <RecomendationsContainer />
       <SearchContainer />
       <ResultsContainer /> */}
     </div>

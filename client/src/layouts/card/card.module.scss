@@ -21,6 +21,9 @@
   &_large {
     padding: 50px;
     width: 100%;
+    @media (max-width: 650px) {
+      padding: 30px;
+    }
   }
   &_middle {
     padding: 50px;

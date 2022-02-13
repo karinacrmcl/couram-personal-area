@@ -2,7 +2,10 @@
   position: absolute;
   right: 40px;
   top: 40px;
-
+  @media (max-width: 650px) {
+    right: 25px;
+    top: 25px;
+  }
   &:hover {
     cursor: pointer;
   }
