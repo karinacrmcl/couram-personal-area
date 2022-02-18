@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div>
       <MainContainer />
-      {/*   <RecomendationsContainer />
-      <SearchContainer />
+      <RecomendationsContainer />
+      {/*  <SearchContainer />
       <ResultsContainer /> */}
     </div>
   );

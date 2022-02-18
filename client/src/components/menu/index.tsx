@@ -57,8 +57,8 @@ export function Menu(props: Props) {
       <Button
         size="small"
         styles={{
-          position: "absolute",
-          right: 0,
+          position: "fixed",
+          right: "10px",
           width: "55px",
           height: "55px",
         }}

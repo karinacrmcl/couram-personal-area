@@ -27,8 +27,14 @@
   }
   &_middle {
     padding: 50px;
+    @media (max-width: 650px) {
+      padding: 20px;
+    }
   }
   &_small {
     padding: 35px;
+    @media (max-width: 650px) {
+      padding: 20px;
+    }
   }
 }

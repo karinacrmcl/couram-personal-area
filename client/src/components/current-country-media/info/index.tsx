@@ -31,7 +31,7 @@ export function Information(props: Props) {
         type="small"
         styles={{
           width: isLaptop ? "100%" : "700px",
-          height: "460px",
+          height: isLaptop ? "100%" : "460px",
           boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)",
         }}
       >
