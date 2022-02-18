@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import SwiperCore, { Navigation } from "swiper";
+import { useMediaQuery } from "react-responsive";
 SwiperCore.use([Navigation]);
 
 export function RecomendationsContainer() {
@@ -47,9 +48,11 @@ export function RecomendationsContainer() {
     },
   ];
 
+  const isTabletSM = useMediaQuery({ maxWidth: "1100px" });
+
   return (
     <SectionLayout title="Recomendations">
-      <Swiper navigation={true} slidesPerView={2}>
+      <Swiper navigation={true} slidesPerView={isTabletSM ? 1 : 2}>
         {countries.map((item, i) => {
           return (
             <SwiperSlide key={i}>

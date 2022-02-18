@@ -21,10 +21,12 @@
 
       box-shadow: 0px 0px 5px #22222234;
 
-      background: rgba(255, 255, 255, 0.795);
+      background: rgba(255, 255, 255, 0.9);
       position: fixed;
       left: 5%;
       top: 5%;
+
+      z-index: 1000000;
     }
   }
 
@@ -34,6 +36,7 @@
 
     @media (max-width: 850px) {
       display: block;
+      z-index: 10000000;
     }
   }
 
