@@ -18,6 +18,7 @@ export function RecomendedCountry({ item }: Props) {
   const isLaptop = useMediaQuery({ maxWidth: "1320px" });
   const isTablet = useMediaQuery({ maxWidth: "1212px" });
   const isTabletSM = useMediaQuery({ maxWidth: "1100px" });
+  const isMobile = useMediaQuery({ maxWidth: "650px" });
 
   return (
     <div className={s.country}>
@@ -32,7 +33,9 @@ export function RecomendedCountry({ item }: Props) {
             : isLaptop
             ? "550px"
             : "600px",
-          height: isTabletSM
+          height: isMobile
+            ? "420px"
+            : isTabletSM
             ? "500px"
             : isTablet
             ? "310px"

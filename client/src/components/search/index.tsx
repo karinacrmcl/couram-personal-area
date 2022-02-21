@@ -3,6 +3,7 @@ import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Select } from "../../shared/components/select";
 import GlobalSelector from "../../shared/icons/svg-selector";
+import { useMediaQuery } from "react-responsive";
 import s from "./search.module.scss";
 
 type Props = {};
@@ -18,6 +19,9 @@ export function Search(props: Props) {
     { value: "Bhutan, Thimphu " },
     { value: "Bolivia, La Paz" },
   ];
+
+  const isMobile = useMediaQuery({ maxWidth: "700px" });
+  const isMobileXS = useMediaQuery({ maxWidth: "600px" });
 
   return (
     <div className={s.search}>
@@ -42,14 +46,31 @@ export function Search(props: Props) {
           onChange={(e) => setValue(e.target.value)}
         />
         <hr />
-        <GlobalSelector id="location" />
-        <Select defaultValue={{ value: "San Francisco, USA" }} items={items} />
-        <Button
-          size="small"
-          styles={{ padding: "10px 25px", width: "auto", height: "50px" }}
-        >
-          Search
-        </Button>
+        {!isMobile && (
+          <>
+            <GlobalSelector id="location" />
+            <Select
+              defaultValue={{ value: "San Francisco, USA" }}
+              items={items}
+            />
+          </>
+        )}
+        {!isMobileXS && (
+          <Button
+            size="small"
+            styles={{
+              padding: "10px 25px",
+              maxWidth: "auto",
+              width: "auto",
+              minWidth: "100px",
+              height: "50px",
+              maxHeight: "50px",
+              minHeight: "50px",
+            }}
+          >
+            Search
+          </Button>
+        )}
       </div>
     </div>
   );

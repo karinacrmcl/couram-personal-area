@@ -10,6 +10,7 @@ type Props = {};
 
 export function Menu(props: Props) {
   const isMobile = useMediaQuery({ maxWidth: "850px" });
+  const isMobileXS = useMediaQuery({ maxWidth: "650px" });
   const [isOpen, setIsOpen] = useState(isMobile ? false : true);
 
   const menuTabs = [
@@ -29,8 +30,8 @@ export function Menu(props: Props) {
   const transitionStyles: { [id: string]: React.CSSProperties } = {
     entering: { opacity: 1 },
     entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
+    exiting: { opacity: 0, zIndex: -200 },
+    exited: { opacity: 0, zIndex: -200 },
   };
 
   return (
@@ -59,8 +60,12 @@ export function Menu(props: Props) {
         styles={{
           position: "fixed",
           right: "10px",
-          width: "55px",
-          height: "55px",
+          width: isMobileXS ? "50px" : "55px",
+          height: isMobileXS ? "50px" : "55px",
+          maxWidth: isMobileXS ? "50px" : "55px",
+          maxHeight: isMobileXS ? "50px" : "55px",
+          minWidth: isMobileXS ? "50px" : "55px",
+          minHeight: isMobileXS ? "50px" : "55px",
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
