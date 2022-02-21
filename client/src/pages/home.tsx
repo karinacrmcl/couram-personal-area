@@ -9,8 +9,8 @@ export default function Home() {
     <div>
       <MainContainer />
       <RecomendationsContainer />
-      {/*  <SearchContainer />
-      <ResultsContainer /> */}
+      <SearchContainer />
+      {/*    <ResultsContainer /> */}
     </div>
   );
 }

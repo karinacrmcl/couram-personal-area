@@ -1,6 +1,9 @@
 .select {
   margin-right: 25px;
   width: fit-content;
+  @media (max-width: 700px) {
+    display: none;
+  }
   &_active {
     font-style: normal;
     font-weight: normal;
