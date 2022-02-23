@@ -15,6 +15,8 @@ export function CurrentCountryInfo(props: Props) {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
+  // const country = useAllCountries("germany");
+
   const countryBasicInfo = [
     { title: "Capital", index: "capital", content: "Vaduz" },
     { title: "Language", index: "language", content: "German" },
@@ -22,7 +24,7 @@ export function CurrentCountryInfo(props: Props) {
   ];
 
   const countryStats = [
-    { iconId: "popualtion", index: "popualtion", content: "37 132 " },
+    { iconId: "popualtion", index: "popualtion", content: "37 132" },
     { iconId: "currency", index: "currency", content: "Swiss Franc" },
     { iconId: "location", index: "location", content: "Central Europe" },
     { iconId: "climate", index: "climate", content: "Continental" },
