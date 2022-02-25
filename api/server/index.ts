@@ -1,6 +1,8 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
+import { attachPrivateRoutes } from "./routes";
+import { getCountry } from "../controllers/countries";
 
 const PORT = process.env.PORT || 3001;
 
@@ -11,6 +13,8 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
+attachPrivateRoutes(app);
+
 app.get("/", function (req, res) {
-  res.json({ message: process.env.PORT });
+  res.json();
 });
