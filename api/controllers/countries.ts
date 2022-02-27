@@ -1,7 +1,7 @@
 import axios from "axios";
 const apiUrl = `http://api.countrylayer.com/v2/`;
 
-export const getCountry = async (req, res) => {
+export const getCountries = async (req, res) => {
   try {
     return axios
       .get(`${apiUrl}all?access_key=${process.env.COUNTRYLAYER_API_KEY}`)
