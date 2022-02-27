@@ -1,6 +1,7 @@
 import { url } from "inspector";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useCountries } from "../../hooks/useCountries";
 import { CardLayout } from "../../layouts/card";
 import Favourites from "../../pages/favourites";
 import { Button } from "../../shared/components/button";
@@ -29,6 +30,8 @@ export function CurrentCountryInfo(props: Props) {
     { iconId: "location", index: "location", content: "Central Europe" },
     { iconId: "climate", index: "climate", content: "Continental" },
   ];
+
+  const countries = useCountries();
 
   return (
     <div className={s.country}>
@@ -70,7 +73,7 @@ export function CurrentCountryInfo(props: Props) {
           <div className={s.country_shadow}></div>
         </div>
 
-        <Favourite active={false} onClick={() => console.log("favourited")} />
+        <Favourite active={false} onClick={() => console.log(countries)} />
       </CardLayout>
       <div className={s.country_bottom}>
         <div className={s.country_stats}>
