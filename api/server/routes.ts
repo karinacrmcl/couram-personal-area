@@ -10,5 +10,5 @@ import * as countries from "../controllers/countries";
 // };
 
 export const attachPrivateRoutes = (app: any): void => {
-  app.get("/countries", countries.getCountry);
+  app.get("/countries", countries.getCountries);
 };
