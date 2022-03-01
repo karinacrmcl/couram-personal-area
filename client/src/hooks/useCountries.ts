@@ -42,15 +42,13 @@ export function useCountries() {
           "Access-Control-Allow-Origin": "*",
         },
       })
-      .then((res) => setCountries(res))
+      .then((res) => setCountries(res.data))
       .catch((error) => {
-        console.log(error);
+        window.open(
+          `https://stackoverflow.com/search?q=${error.message}`,
+          "_blank"
+        );
       });
-    //   window.open(
-    //     `https://stackoverflow.com/search?q=${error.message}`,
-    //     "_blank"
-    //   );
-    // console.log("ok");
   }, []);
 
   return countries;
