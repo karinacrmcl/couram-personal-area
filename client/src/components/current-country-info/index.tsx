@@ -31,7 +31,11 @@ export function CurrentCountryInfo(props: Props) {
     { iconId: "climate", index: "climate", content: "Continental" },
   ];
 
-  const countries = useCountries();
+  function getInfo() {
+    // eslint-disable-next-line
+    const countries = useCountries();
+    console.log(countries);
+  }
 
   return (
     <div className={s.country}>
@@ -72,8 +76,7 @@ export function CurrentCountryInfo(props: Props) {
 
           <div className={s.country_shadow}></div>
         </div>
-
-        <Favourite active={false} onClick={() => console.log(countries)} />
+        <Favourite active={false} onClick={() => getInfo()} />
       </CardLayout>
       <div className={s.country_bottom}>
         <div className={s.country_stats}>
