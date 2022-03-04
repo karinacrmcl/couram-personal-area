@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import { attachPrivateRoutes } from "./routes";
+import { createConnection } from "../database/createConnection";
 
 const PORT = process.env.PORT || 3001;
 
@@ -10,9 +11,10 @@ app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
-});
 
-attachPrivateRoutes(app);
+  attachPrivateRoutes(app);
+  createConnection();
+});
 
 app.get("/", function (req, res) {
   res.json({ message: "y" });

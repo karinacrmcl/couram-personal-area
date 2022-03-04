@@ -1,10 +1,13 @@
 import axios from "axios";
-const apiUrl = `http://api.countrylayer.com/v2/`;
+import api from "../../client/http";
+import { db } from "../database/createConnection";
+import { Country } from "../model/country.model";
 
 export const getCountries = async (req, res) => {
-  axios
-    .get(`${apiUrl}all?access_key=${process.env.COUNTRYLAYER_API_KEY}`)
-    .then((response) => {
-      res.send(response.data);
-    });
+  try {
+    const countries = await Country.find({});
+    return res.status(200).json({ status: "success", data: countries });
+  } catch (error) {
+    console.log(error);
+  }
 };
