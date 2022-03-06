@@ -17,5 +17,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/", function (req, res) {
-  res.json({ message: "y" });
+  res.json({ message: `Server listening on ${PORT}` });
 });

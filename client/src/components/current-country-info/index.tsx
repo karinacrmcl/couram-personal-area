@@ -1,6 +1,7 @@
 import { url } from "inspector";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useBasicInfo } from "../../hooks/useBasicInfo";
 import { useCountries } from "../../hooks/useCountries";
 import { CardLayout } from "../../layouts/card";
 import Favourites from "../../pages/favourites";
@@ -31,9 +32,9 @@ export function CurrentCountryInfo(props: Props) {
     { iconId: "climate", index: "climate", content: "Continental" },
   ];
 
+  const countries = useCountries();
   function getInfo() {
     // eslint-disable-next-line
-    const countries = useCountries();
     console.log(countries);
   }
 
