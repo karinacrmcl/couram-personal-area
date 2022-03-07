@@ -32,9 +32,9 @@ export function CurrentCountryInfo(props: Props) {
     { iconId: "climate", index: "climate", content: "Continental" },
   ];
 
-  const countries = useCountries();
+  const countries = useBasicInfo("canada");
   function getInfo() {
-    // eslint-disable-next-line
+    // eslint - disable - next - line;
     console.log(countries);
   }
 

@@ -3,7 +3,8 @@ import { error } from "console";
 import React, { useState, useEffect } from "react";
 
 export function useCountries() {
-  const [countries, setCountries] = useState({});
+  let bar: any = {};
+  const [countries, setCountries] = useState(bar);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/countries`, {
