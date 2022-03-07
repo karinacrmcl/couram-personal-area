@@ -6,7 +6,7 @@ export function useCountries() {
   const [countries, setCountries] = useState({});
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_APIURL}/countries`, {
+      .get(`${process.env.REACT_APP_API_URL}/countries`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
