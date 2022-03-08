@@ -11,32 +11,46 @@ import GlobalSelector from "../../shared/icons/svg-selector";
 import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
 
-type Props = {};
+type CountryBasicInfo = {
+  name: string;
+  capital: string;
+  languages: Array<string>;
+  totalSize: number;
+  population: number;
+  currencies: Array<string>;
+  subregion: string;
+  climate: string;
+  shortDescription: string;
+};
 
-export function CurrentCountryInfo(props: Props) {
+type Props = {
+  country: CountryBasicInfo;
+};
+
+export function CurrentCountryInfo({ country }: Props) {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
-  // const country = useAllCountries("germany");
-
   const countryBasicInfo = [
-    { title: "Capital", index: "capital", content: "Vaduz" },
-    { title: "Language", index: "language", content: "German" },
-    { title: "Total size", index: "total_size", content: "160 square km" },
+    { title: "Capital", index: "capital", content: country?.capital },
+    {
+      title: "Language",
+      index: "language",
+      content: country?.languages[0],
+    },
+    {
+      title: "Total size",
+      index: "total_size",
+      content: `${country?.totalSize} km² `,
+    },
   ];
 
   const countryStats = [
-    { iconId: "popualtion", index: "popualtion", content: "37 132" },
-    { iconId: "currency", index: "currency", content: "Swiss Franc" },
-    { iconId: "location", index: "location", content: "Central Europe" },
-    { iconId: "climate", index: "climate", content: "Continental" },
+    { iconId: "popualtion", index: "popualtion", content: country?.population },
+    { iconId: "currency", index: "currency", content: country?.currencies[0] },
+    { iconId: "location", index: "location", content: country?.subregion },
+    { iconId: "climate", index: "climate", content: country?.climate },
   ];
-
-  const countries = useBasicInfo("canada");
-  function getInfo() {
-    // eslint - disable - next - line;
-    console.log(countries);
-  }
 
   return (
     <div className={s.country}>
@@ -46,11 +60,8 @@ export function CurrentCountryInfo(props: Props) {
         styles={{ height: isMobile ? "450px" : isTablet ? "500px" : "600px" }}
       >
         <div className={s.country_container}>
-          <h2 className={s.country_title}>Liechtenstein</h2>
-          <p className={s.country_description}>
-            Liechtenstein is a small country located between Austria and
-            Switzerland.
-          </p>
+          <h2 className={s.country_title}>{country?.name}</h2>
+          <p className={s.country_description}>{country?.shortDescription}</p>
 
           <div className={s.country_info}>
             {countryBasicInfo.map((item, i) => {
@@ -77,7 +88,7 @@ export function CurrentCountryInfo(props: Props) {
 
           <div className={s.country_shadow}></div>
         </div>
-        <Favourite active={false} onClick={() => getInfo()} />
+        <Favourite active={false} onClick={() => console.log()} />
       </CardLayout>
       <div className={s.country_bottom}>
         <div className={s.country_stats}>
@@ -93,7 +104,7 @@ export function CurrentCountryInfo(props: Props) {
         <div className={s.country_start}>
           <div className={s.country_start_text}>
             <p>Start exploring</p>
-            <h3>Liechtenstein</h3>
+            <h3>{country?.name}</h3>
           </div>
           <Button size="large">
             <GlobalSelector id="play" />

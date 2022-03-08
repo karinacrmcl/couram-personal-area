@@ -1,12 +1,15 @@
 import React from "react";
 import { CurrentCountryInfo } from "../../components/current-country-info";
 import { CurrentCountryAddition } from "../../components/current-country-media";
+import { useBasicInfo } from "../../hooks/useBasicInfo";
 import { SectionLayout } from "../../layouts/section";
 
 export function MainContainer() {
+  const country = useBasicInfo("Canada");
+
   return (
     <SectionLayout title="Today's country">
-      <CurrentCountryInfo />
+      <CurrentCountryInfo country={country} />
       <CurrentCountryAddition />
     </SectionLayout>
   );

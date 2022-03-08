@@ -3,9 +3,16 @@ import { useCountries } from "./useCountries";
 
 export function useBasicInfo(name: string) {
   const countries = useCountries();
-  const [item, setItem] = useState({});
+  // const [item, setItem] = useState({});
+
+  const item = countries.data?.find(
+    (item: { name: any }) => item.name === name
+  );
+  return item;
+
   // console.log(
-  //   countries.data?.filter((item: { name: any }) => item.name === name)
+
+  //   // .filter((item: { name: any }) => item.name === "Canada")
   // );
   // useEffect(() => {
   //   return () => {
@@ -17,13 +24,14 @@ export function useBasicInfo(name: string) {
   //   };
   // }, [name]);
 
-  useEffect(() => {
-    return () => {
-      console.log(
-        countries.data.filter((item: { name: any }) => item.name === name)
-      );
-    };
-  }, [countries]);
+  // useEffect(() => {
+  //   return () => {
+  //     const item = countries.data?.find(
+  //       (item: { name: any }) => item.name === "Canada"
+  //     );
+  //     // setItem(item);
+  //   };
+  // }, [countries.data]);
 
-  return item;
+  // return item;
 }
