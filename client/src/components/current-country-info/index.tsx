@@ -1,6 +1,7 @@
 import { url } from "inspector";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useCurrentCountry } from "../../context/current-country";
 import { useBasicInfo } from "../../hooks/useBasicInfo";
 import { useCountries } from "../../hooks/useCountries";
 import { CardLayout } from "../../layouts/card";
@@ -8,17 +9,14 @@ import Favourites from "../../pages/favourites";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
-import { CountryBasicInfo } from "../../types/country";
 import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
 
-type Props = {
-  country: CountryBasicInfo;
-};
-
-export function CurrentCountryInfo({ country }: Props) {
+export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
+
+  const country = useCurrentCountry();
 
   const countryBasicInfo = [
     { title: "Capital", index: "capital", content: country?.capital },
