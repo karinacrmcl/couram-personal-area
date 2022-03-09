@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react";
-import { defaultState } from "../shared/constants/current-country";
 import { CountryBasicInfo } from "../types/country";
 
 interface ContextState {

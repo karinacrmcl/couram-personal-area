@@ -1,17 +1,10 @@
-import { url } from "inspector";
-import React, { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
-import {
-  CurrentCountryContext,
-  useCurrentCountry,
-} from "../../context/current-country";
-import { useBasicInfo } from "../../hooks/useBasicInfo";
-import { useCountries } from "../../hooks/useCountries";
+import { useCurrentCountry } from "../../context/current-country";
 import { CardLayout } from "../../layouts/card";
-import Favourites from "../../pages/favourites";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
+import { structureData } from "../../utils/structure-current-country";
 import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
 
@@ -19,39 +12,8 @@ export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
-  const context = useContext(CurrentCountryContext);
-  const countryBasicInfo = [
-    { title: "Capital", index: "capital", content: context.country?.capital },
-    {
-      title: "Language",
-      index: "language",
-      content: context.country?.languages[0],
-    },
-    {
-      title: "Total size",
-      index: "total_size",
-      content: `${context.country?.totalSize} km² `,
-    },
-  ];
-
-  const countryStats = [
-    {
-      iconId: "popualtion",
-      index: "popualtion",
-      content: context.country?.population,
-    },
-    {
-      iconId: "currency",
-      index: "currency",
-      content: context.country?.currencies[0],
-    },
-    {
-      iconId: "location",
-      index: "location",
-      content: context.country?.subregion,
-    },
-    { iconId: "climate", index: "climate", content: context.country?.climate },
-  ];
+  const context = useCurrentCountry();
+  const { countryBasicInfo, countryStats } = structureData(context.country);
 
   return (
     <div className={s.country}>

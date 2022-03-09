@@ -4,7 +4,6 @@ import {
   useCurrentCountry,
 } from "../context/current-country";
 import { useBasicInfo } from "../hooks/useBasicInfo";
-import { defaultState } from "../shared/constants/current-country";
 
 type Props = {
   children: ReactNode;
