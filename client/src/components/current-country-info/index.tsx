@@ -1,7 +1,10 @@
 import { url } from "inspector";
-import React from "react";
+import React, { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
-import { useCurrentCountry } from "../../context/current-country";
+import {
+  CurrentCountryContext,
+  useCurrentCountry,
+} from "../../context/current-country";
 import { useBasicInfo } from "../../hooks/useBasicInfo";
 import { useCountries } from "../../hooks/useCountries";
 import { CardLayout } from "../../layouts/card";
@@ -16,27 +19,38 @@ export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
-  const country = useCurrentCountry();
-
+  const context = useContext(CurrentCountryContext);
   const countryBasicInfo = [
-    { title: "Capital", index: "capital", content: country?.capital },
+    { title: "Capital", index: "capital", content: context.country?.capital },
     {
       title: "Language",
       index: "language",
-      content: country?.languages[0],
+      content: context.country?.languages[0],
     },
     {
       title: "Total size",
       index: "total_size",
-      content: `${country?.totalSize} km² `,
+      content: `${context.country?.totalSize} km² `,
     },
   ];
 
   const countryStats = [
-    { iconId: "popualtion", index: "popualtion", content: country?.population },
-    { iconId: "currency", index: "currency", content: country?.currencies[0] },
-    { iconId: "location", index: "location", content: country?.subregion },
-    { iconId: "climate", index: "climate", content: country?.climate },
+    {
+      iconId: "popualtion",
+      index: "popualtion",
+      content: context.country?.population,
+    },
+    {
+      iconId: "currency",
+      index: "currency",
+      content: context.country?.currencies[0],
+    },
+    {
+      iconId: "location",
+      index: "location",
+      content: context.country?.subregion,
+    },
+    { iconId: "climate", index: "climate", content: context.country?.climate },
   ];
 
   return (
@@ -47,8 +61,10 @@ export function CurrentCountryInfo() {
         styles={{ height: isMobile ? "450px" : isTablet ? "500px" : "600px" }}
       >
         <div className={s.country_container}>
-          <h2 className={s.country_title}>{country?.name}</h2>
-          <p className={s.country_description}>{country?.shortDescription}</p>
+          <h2 className={s.country_title}>{context.country?.name}</h2>
+          <p className={s.country_description}>
+            {context.country?.shortDescription}
+          </p>
 
           <div className={s.country_info}>
             {countryBasicInfo.map((item, i) => {
@@ -91,7 +107,7 @@ export function CurrentCountryInfo() {
         <div className={s.country_start}>
           <div className={s.country_start_text}>
             <p>Start exploring</p>
-            <h3>{country?.name}</h3>
+            <h3>{context.country?.name}</h3>
           </div>
           <Button size="large">
             <GlobalSelector id="play" />

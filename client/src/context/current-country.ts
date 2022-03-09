@@ -3,7 +3,7 @@ import { defaultState } from "../shared/constants/current-country";
 import { CountryBasicInfo } from "../types/country";
 
 interface ContextState {
-  country: CountryBasicInfo | null;
+  country: CountryBasicInfo;
 }
 
 export const CurrentCountryContext = createContext({} as ContextState);
