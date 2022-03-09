@@ -8,20 +8,9 @@ import Favourites from "../../pages/favourites";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
+import { CountryBasicInfo } from "../../types/country";
 import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
-
-type CountryBasicInfo = {
-  name: string;
-  capital: string;
-  languages: Array<string>;
-  totalSize: number;
-  population: number;
-  currencies: Array<string>;
-  subregion: string;
-  climate: string;
-  shortDescription: string;
-};
 
 type Props = {
   country: CountryBasicInfo;
