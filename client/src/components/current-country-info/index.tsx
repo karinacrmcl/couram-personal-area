@@ -13,13 +13,17 @@ export function CurrentCountryInfo() {
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
   const context = useCurrentCountry();
-  const { countryBasicInfo, countryStats } = structureData(context.country);
+  const { countryBasicInfo, countryStats, coverPhoto } = structureData(
+    context.country
+  );
+
+  console.log(coverPhoto.url);
 
   return (
     <div className={s.country}>
       <CardLayout
         type="large"
-        bgUrl="/images/example-bg-1.jpg"
+        bgUrl={coverPhoto.url}
         styles={{ height: isMobile ? "450px" : isTablet ? "500px" : "600px" }}
       >
         <div className={s.country_container}>

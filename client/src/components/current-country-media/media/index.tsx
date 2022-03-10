@@ -2,11 +2,14 @@ import React from "react";
 import { CardLayout } from "../../../layouts/card";
 import { Button } from "../../../shared/components/button";
 import GlobalSelector from "../../../shared/icons/svg-selector";
+import { CountryBasicInfo } from "../../../types/country";
 import s from "./media.module.scss";
 
-type Props = {};
+type Props = {
+  country: CountryBasicInfo;
+};
 
-export function Media(props: Props) {
+export function Media({ country }: Props) {
   return (
     <div className={s.media}>
       <CardLayout

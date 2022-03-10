@@ -2,28 +2,18 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { CardLayout } from "../../../layouts/card";
 import { Button } from "../../../shared/components/button";
+import { CountryBasicInfo } from "../../../types/country";
+import { structureData } from "../../../utils/structure-current-country";
 import SvgSelector from "../svg-selector";
 import s from "./info.module.scss";
 
-type Props = {};
+type Props = {
+  country: CountryBasicInfo;
+};
 
-export function Information(props: Props) {
+export function Information({ country }: Props) {
   const isLaptop = useMediaQuery({ maxWidth: "1200px" });
-
-  const factsContent = [
-    {
-      name: "Situation",
-      value:
-        "Liechtenstein is situated in the Upper Rhine valley of the European Alps.",
-      key: 1,
-    },
-    {
-      name: "Location",
-      value:
-        "Liechtenstein lies on the east bank of the Rhine River south of Lake Constance between Austria and Switzerland. It consists of low valley land and Alpine peaks.",
-      key: 2,
-    },
-  ];
+  const { factsContent } = structureData(country);
 
   return (
     <div className={s.info}>
@@ -37,8 +27,8 @@ export function Information(props: Props) {
       >
         <div className={s.info_content}>
           <div className={s.info_heading}>
-            <h2>Interesting Liechtenstein Facts</h2>
-            <p>What unique things can you discover about Liechtenstein?</p>
+            <h2>Interesting {country?.name} Facts</h2>
+            <p>What unique things can you discover about {country?.name}?</p>
           </div>
           <div className={s.info_facts}>
             {factsContent.map((item, i) => {

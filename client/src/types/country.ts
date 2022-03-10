@@ -8,4 +8,7 @@ export type CountryBasicInfo = {
   subregion: Array<string>;
   climate: string;
   shortDescription: string;
+  coverPhoto: {
+    largeUrl: string;
+  };
 };
