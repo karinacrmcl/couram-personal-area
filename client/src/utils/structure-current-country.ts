@@ -38,22 +38,9 @@ export function structureData(input: CountryBasicInfo) {
     },
   ];
 
-  const factsContent = [
-    {
-      name: "Situation",
-      value:
-        "Liechtenstein is situated in the Upper Rhine valley of the European Alps.",
-      key: 1,
-    },
-    {
-      name: "Location",
-      value:
-        "Liechtenstein lies on the east bank of the Rhine River south of Lake Constance between Austria and Switzerland. It consists of low valley land and Alpine peaks.",
-      key: 2,
-    },
-  ];
+  const factsContent = input?.content.facts;
   const coverPhoto = {
     url: input?.coverPhoto.largeUrl,
   };
-  return { countryBasicInfo, countryStats, factsContent, coverPhoto };
+  return { countryBasicInfo, countryStats, coverPhoto, factsContent };
 }

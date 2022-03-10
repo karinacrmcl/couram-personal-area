@@ -31,13 +31,13 @@ export function Information({ country }: Props) {
             <p>What unique things can you discover about {country?.name}?</p>
           </div>
           <div className={s.info_facts}>
-            {factsContent.map((item, i) => {
+            {factsContent?.map((item, i) => {
               return (
-                <div key={item.key} className={s.info_fact}>
+                <div key={i} className={s.info_fact}>
                   <SvgSelector id="question" />
                   <div>
-                    <h4>{item.name}</h4>
-                    <p>{item.value}</p>
+                    <h4>{item.title}</h4>
+                    <p>{item.body}</p>
                   </div>
                 </div>
               );

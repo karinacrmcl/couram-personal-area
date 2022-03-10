@@ -17,8 +17,6 @@ export function CurrentCountryInfo() {
     context.country
   );
 
-  console.log(coverPhoto.url);
-
   return (
     <div className={s.country}>
       <CardLayout
