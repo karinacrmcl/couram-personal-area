@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function CurrentCountryProvider({ children }: Props) {
-  const country = useBasicInfo("France");
+  const country = useBasicInfo("Germany");
 
   return (
     <CurrentCountryContext.Provider value={{ country }}>
