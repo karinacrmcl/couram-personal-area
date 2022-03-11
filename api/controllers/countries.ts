@@ -1,6 +1,3 @@
-import axios from "axios";
-import api from "../../client/http";
-import { db } from "../database/createConnection";
 import { Country } from "../model/country.model";
 
 export const getCountries = async (req, res) => {
