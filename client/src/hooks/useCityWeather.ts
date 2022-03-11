@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 export function useCityWeather(name: string) {
   let bar: any = {};
   const [weather, setWeather] = useState(bar);
@@ -7,7 +10,9 @@ export function useCityWeather(name: string) {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
-        params: {},
+        // params: {
+        //   cityName: name,
+        // },
       })
       .then((res) => setWeather(res.data))
       .catch((error) => {
@@ -17,5 +22,3 @@ export function useCityWeather(name: string) {
 
   return weather;
 }
-import axios from "axios";
-import React, { useState, useEffect } from "react";
