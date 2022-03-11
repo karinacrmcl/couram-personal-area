@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useCurrentCountry } from "../../context/current-country";
+import { useCityWeather } from "../../hooks/useCityWeather";
 import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
@@ -16,6 +17,9 @@ export function CurrentCountryInfo() {
   const { countryBasicInfo, countryStats, coverPhoto } = structureData(
     context.country
   );
+
+  const ok = useCityWeather("Canada");
+  console.log(ok);
 
   return (
     <div className={s.country}>

@@ -4,7 +4,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  config.url = config.url + `?access_key=${process.env.COUNTRYLAYER_API_KEY}`;
+  config.url = config.url + `?access_key=${process.env.WEATHER_API_KEY}`;
   return config;
 });
 
