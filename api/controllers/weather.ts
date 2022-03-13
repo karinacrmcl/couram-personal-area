@@ -4,16 +4,15 @@ export const getWeather = async (req, res) => {
   const apiUrl = "api.weatherapi.com/v1/";
 
   try {
-    const cityName = req.params.cityName;
-    // axios
-    //   .get(
-    //     `http://${apiUrl}current.json?key=${process.env.WEATHER_API_KEY}=${cityName}&aqi=yes`
-    //   )
-    //   .then((response) => {
-    //     res.send(response.data);
-    //   });
-    res.send("ok");
+    const cityName = req.query.cityName || "";
+    axios
+      .get(
+        `http://${apiUrl}current.json?key=${process.env.WEATHER_API_KEY}&q=${cityName}&aqi=yes`
+      )
+      .then((response) => {
+        res.send(response.data);
+      });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
