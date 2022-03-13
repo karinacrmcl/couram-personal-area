@@ -1,0 +1,43 @@
+.error_message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 40%;
+
+  & h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 288px;
+    line-height: 295px;
+
+    letter-spacing: 0.085em;
+    color: #ffffff;
+    text-shadow: 16px 14px 6px rgba(0, 0, 0, 0.25);
+    margin: 0;
+    padding: 0;
+  }
+
+  & h3 {
+    font-family: "Epilogue";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 49px;
+
+    color: #d0d0d0;
+    margin: 0;
+    padding: 0;
+  }
+  & p {
+    font-family: "Epilogue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 25px;
+
+    color: #d0d0d0;
+    margin: 0;
+    padding: 0;
+  }
+}
