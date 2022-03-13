@@ -1,6 +1,6 @@
 import { CountryBasicInfo } from "../types/country";
 
-export function structureData(input: CountryBasicInfo) {
+export function structureCountryData(input: CountryBasicInfo) {
   const countryBasicInfo = [
     { title: "Capital", index: "capital", content: input?.capital },
     {

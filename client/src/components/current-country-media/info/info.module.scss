@@ -76,6 +76,7 @@
       color: #222222;
       margin: 0;
       padding: 0;
+      text-transform: capitalize;
     }
     p {
       font-style: normal;
@@ -86,6 +87,10 @@
       color: #5b5b5b;
       margin: 0;
       padding: 0;
+      text-transform: lowercase;
+      &:first-letter {
+        text-transform: uppercase;
+      }
 
       @media (max-width: 650px) {
         font-size: 14px;

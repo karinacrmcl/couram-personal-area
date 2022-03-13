@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { CardLayout } from "../../../layouts/card";
 import { Button } from "../../../shared/components/button";
 import { CountryBasicInfo } from "../../../types/country";
-import { structureData } from "../../../utils/structure-current-country";
+import { structureCountryData } from "../../../utils/structure-current-country";
 import SvgSelector from "../svg-selector";
 import s from "./info.module.scss";
 
@@ -13,7 +13,7 @@ type Props = {
 
 export function Information({ country }: Props) {
   const isLaptop = useMediaQuery({ maxWidth: "1200px" });
-  const { factsContent } = structureData(country);
+  const { factsContent } = structureCountryData(country);
 
   return (
     <div className={s.info}>

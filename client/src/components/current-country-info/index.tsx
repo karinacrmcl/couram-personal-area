@@ -5,7 +5,8 @@ import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
-import { structureData } from "../../utils/structure-current-country";
+import { structureCountryData } from "../../utils/structure-current-country";
+import { structureWeatherData } from "../../utils/structure-state-data";
 import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
 
@@ -14,12 +15,12 @@ export function CurrentCountryInfo() {
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
   const context = useCurrentCountry();
-  const { countryBasicInfo, countryStats, coverPhoto } = structureData(
+  const { countryBasicInfo, countryStats, coverPhoto } = structureCountryData(
     context.country
   );
 
-  const ok = useCityWeather("Canada");
-  console.log(ok);
+  const { degrees, time, date } = structureWeatherData(context.weather);
+  console.log(degrees, time, date);
 
   return (
     <div className={s.country}>
@@ -48,12 +49,12 @@ export function CurrentCountryInfo() {
           <div className={s.country_state}>
             <div className={s.country_state_item}>
               <p>Temperature</p>
-              <h3>33°F</h3>
+              <h3>{degrees}°C</h3>
             </div>
             <hr />
             <div className={s.country_state_item}>
-              <p>Fri, 28 Jan</p>
-              <h3>16:00</h3>
+              <p>{date}</p>
+              <h3>{time}</h3>
             </div>
           </div>
 
