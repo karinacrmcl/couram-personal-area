@@ -3,6 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import { attachPrivateRoutes } from "./routes";
 import { createConnection } from "../database/createConnection";
+import { job } from "../core/cron";
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,6 +15,7 @@ app.listen(PORT, () => {
 
   attachPrivateRoutes(app);
   createConnection();
+  job.start();
 });
 
 app.get("/", function (req, res) {

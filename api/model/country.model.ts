@@ -39,7 +39,7 @@ export interface CountryModel {
   };
 }
 
-type IGoodModelDocument = CountryModel & Document;
+type CountryModelDocument = CountryModel & Document;
 
 const CountrySchema = new Schema<CountryModel & Document>({
   id: {
@@ -106,4 +106,4 @@ const CountrySchema = new Schema<CountryModel & Document>({
   },
 });
 
-export const Country = model<IGoodModelDocument>("Country", CountrySchema);
+export const Country = model<CountryModelDocument>("Country", CountrySchema);
