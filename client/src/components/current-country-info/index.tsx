@@ -1,6 +1,5 @@
 import { useMediaQuery } from "react-responsive";
-import { useCurrentCountry } from "../../context/current-country";
-import { useCityWeather } from "../../hooks/useCityWeather";
+import { useCurrentCountryContext } from "../../context/current-country";
 import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
@@ -14,13 +13,12 @@ export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
-  const context = useCurrentCountry();
+  const context = useCurrentCountryContext();
   const { countryBasicInfo, countryStats, coverPhoto } = structureCountryData(
     context.country
   );
 
   const { degrees, time, date } = structureWeatherData(context.weather);
-  console.log(degrees, time, date);
 
   return (
     <div className={s.country}>

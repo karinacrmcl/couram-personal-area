@@ -8,4 +8,4 @@ interface ContextState {
 }
 
 export const CurrentCountryContext = createContext({} as ContextState);
-export const useCurrentCountry = () => useContext(CurrentCountryContext);
+export const useCurrentCountryContext = () => useContext(CurrentCountryContext);

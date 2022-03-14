@@ -1,20 +1,17 @@
 import React, { ReactNode, useState } from "react";
-import {
-  CurrentCountryContext,
-  useCurrentCountry,
-} from "../context/current-country";
-import { useBasicInfo } from "../hooks/useBasicInfo";
+import { CurrentCountryContext } from "../context/current-country";
 import { useCityWeather } from "../hooks/useCityWeather";
+import { useCurrentCountry } from "../hooks/useCurrentCountry";
 
 type Props = {
   children: ReactNode;
 };
 
 export default function CurrentCountryProvider({ children }: Props) {
-  const country = useBasicInfo("Netherlands");
+  const country = useCurrentCountry();
   const weather = useCityWeather("Amsterdam");
 
-  console.log({ country, weather });
+  console.log(country);
 
   return (
     <CurrentCountryContext.Provider value={{ country, weather }}>
