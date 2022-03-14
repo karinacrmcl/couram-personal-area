@@ -2,4 +2,19 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  &_white {
+    & div {
+      & p {
+        color: white !important;
+        &::after {
+          background-color: white !important;
+        }
+      }
+      & svg {
+        & path {
+          fill: white !important;
+        }
+      }
+    }
+  }
 }
