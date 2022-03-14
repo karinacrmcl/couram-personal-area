@@ -8,7 +8,6 @@ import s from "./header.module.scss";
 
 export default function HeaderContainer() {
   const isWhite = checkPath(useLocation().pathname);
-  console.log(isWhite);
 
   return (
     <header className={classNames(s.header, { [s.header_white]: !isWhite })}>

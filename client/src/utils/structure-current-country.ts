@@ -6,7 +6,7 @@ export function structureCountryData(input: CountryBasicInfo) {
     {
       title: "Language",
       index: "language",
-      content: input?.languages[0],
+      content: input?.languages,
     },
     {
       title: "Total size",
@@ -24,7 +24,7 @@ export function structureCountryData(input: CountryBasicInfo) {
     {
       iconId: "currency",
       index: "currency",
-      content: input?.currencies[0],
+      content: input?.currencies,
     },
     {
       iconId: "location",
@@ -38,9 +38,9 @@ export function structureCountryData(input: CountryBasicInfo) {
     },
   ];
 
-  const factsContent = input?.content.facts;
+  const factsContent = input?.content?.facts;
   const coverPhoto = {
-    url: input?.coverPhoto.largeUrl,
+    url: input?.coverPhoto?.largeUrl,
   };
   return { countryBasicInfo, countryStats, coverPhoto, factsContent };
 }
