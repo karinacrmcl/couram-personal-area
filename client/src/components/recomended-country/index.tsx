@@ -1,17 +1,16 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useCityWeather } from "../../hooks/useCityWeather";
 import { CardLayout } from "../../layouts/card";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
+import { CountryBasicInfo } from "../../types/country";
+import { checkStoredIds, storeId } from "../../utils/local-storage";
+import { structureWeatherData } from "../../utils/structure-state-data";
 import s from "./country.module.scss";
 
 type Props = {
-  item: {
-    name: string;
-    capital: string;
-    location: string;
-    bgUrl: string;
-  };
+  item: CountryBasicInfo;
 };
 
 export function RecomendedCountry({ item }: Props) {
@@ -20,11 +19,14 @@ export function RecomendedCountry({ item }: Props) {
   const isTabletSM = useMediaQuery({ maxWidth: "1100px" });
   const isMobile = useMediaQuery({ maxWidth: "650px" });
 
+  const weather = useCityWeather(item?.capital);
+  const { degrees, time, date } = structureWeatherData(weather);
+
   return (
     <div className={s.country}>
       <CardLayout
         type="small"
-        bgUrl={item.bgUrl}
+        bgUrl={item?.coverPhoto?.largeUrl}
         styles={{
           width: isTabletSM
             ? "100%"
@@ -51,22 +53,25 @@ export function RecomendedCountry({ item }: Props) {
           <div className={s.country_bottom}>
             <div className={s.country_location}>
               <GlobalSelector id="location" />
-              <p>{item.location} </p>
+              <p>{`${item?.capital}, ${item?.name}`} </p>
             </div>
             <div className={s.country_state}>
               <div className={s.country_state_item}>
                 <p>Temperature</p>
-                <h3>33°F</h3>
+                <h3>{degrees}°C</h3>
               </div>
               <hr />
               <div className={s.country_state_item}>
-                <p>Fri, 28 Jan</p>
-                <h3>16:00</h3>
+                <p>{date}</p>
+                <h3>{time}</h3>
               </div>
             </div>
           </div>
 
-          <Favourite onClick={() => console.log("recomended")} active={false} />
+          <Favourite
+            onClick={() => storeId(item?.name)}
+            active={checkStoredIds(item.name)}
+          />
         </div>
         <div className={s.country_shadow}></div>
       </CardLayout>
