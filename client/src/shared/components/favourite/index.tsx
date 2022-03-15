@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./favourite.module.scss";
 
 type Props = {
@@ -7,8 +7,15 @@ type Props = {
 };
 
 export function Favourite({ onClick, active }: Props) {
+  const [isActive, setIsActive] = useState(active);
+
+  function onClickHandler() {
+    setIsActive(!isActive);
+    onClick();
+  }
+
   return (
-    <div className={s.favourite} onClick={onClick}>
+    <div className={s.favourite} onClick={onClickHandler}>
       <svg
         width="40"
         height="41"
@@ -16,7 +23,7 @@ export function Favourite({ onClick, active }: Props) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {active ? (
+        {isActive ? (
           <path
             d="M33.6 8.44216C31.8333 6.67084 29.4914 5.58972 26.9972 5.39411C24.5031 5.19849 22.0213 5.90127 20 7.37549C17.8794 5.79822 15.24 5.08301 12.6132 5.37389C9.98643 5.66476 7.56741 6.94012 5.8433 8.94313C4.11919 10.9461 3.21805 13.528 3.32135 16.1688C3.42464 18.8097 4.52471 21.3133 6.40001 23.1755C8.27531 25.0377 16.75 33.5422 16.75 33.5422C17.6167 34.3951 18.784 34.8732 20 34.8732C21.216 34.8732 22.3833 34.3951 23.25 33.5422L33.6 23.1755C35.546 21.2176 36.6382 18.5693 36.6382 15.8088C36.6382 13.0484 35.546 10.4 33.6 8.44216Z"
             fill="white"
