@@ -20,7 +20,7 @@ export function useCityWeather(name: string) {
           console.log(error);
         });
     };
-    name !== undefined ? getWeather() : console.log("ok");
+    name !== undefined ? getWeather() : void 0;
   }, [name]);
   return weather;
 }

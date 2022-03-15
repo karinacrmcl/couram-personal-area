@@ -4,7 +4,6 @@ import { State } from "../types/state";
 
 interface ContextState {
   country: CountryBasicInfo;
-  // weather: State;
 }
 
 export const CurrentCountryContext = createContext({} as ContextState);

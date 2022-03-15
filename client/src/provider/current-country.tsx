@@ -10,13 +10,6 @@ type Props = {
 export default function CurrentCountryProvider({ children }: Props) {
   const country = useCurrentCountry();
 
-  // useEffect(() => {
-  //   return () => {
-  //   };
-  // }, [country]);
-
-  console.log(country.capital);
-
   return (
     <CurrentCountryContext.Provider value={{ country }}>
       {children}
