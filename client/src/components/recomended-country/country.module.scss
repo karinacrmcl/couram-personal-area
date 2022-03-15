@@ -1,6 +1,8 @@
 .country {
   cursor: default;
   user-select: none;
+  &::hover {
+  }
   &_shadow {
     width: 100%;
     height: 100%;

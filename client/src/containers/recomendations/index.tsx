@@ -14,8 +14,6 @@ export function RecomendationsContainer() {
   const countries = useRecomendations();
   const isTabletSM = useMediaQuery({ maxWidth: "1100px" });
 
-  console.log("tf", countries);
-
   return (
     <SectionLayout title="Recomendations">
       <Swiper navigation={true} slidesPerView={isTabletSM ? 1 : 2}>
