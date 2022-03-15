@@ -1,4 +1,6 @@
 .country {
+  cursor: default;
+  user-select: none;
   &_shadow {
     width: 100%;
     height: 100%;

@@ -20,7 +20,6 @@ export function CurrentCountryInfo() {
     context.country
   );
 
-  console.log(context.country);
   const { degrees, time, date } = structureWeatherData(weather);
 
   return (

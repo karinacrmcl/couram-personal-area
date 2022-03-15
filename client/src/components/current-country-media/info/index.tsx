@@ -13,7 +13,7 @@ type Props = {
 
 export function Information({ country }: Props) {
   const isLaptop = useMediaQuery({ maxWidth: "1200px" });
-  // const { factsContent } = structureCountryData(country);
+  const { factsContent } = structureCountryData(country);
 
   return (
     <div className={s.info}>
@@ -31,7 +31,7 @@ export function Information({ country }: Props) {
             <p>What unique things can you discover about {country?.name}?</p>
           </div>
           <div className={s.info_facts}>
-            {/* {factsContent?.map((item, i) => {
+            {factsContent?.map((item, i) => {
               return (
                 <div key={i} className={s.info_fact}>
                   <SvgSelector id="question" />
@@ -41,7 +41,7 @@ export function Information({ country }: Props) {
                   </div>
                 </div>
               );
-            })} */}
+            })}
           </div>
           <Button size="small">
             <SvgSelector id="map" />

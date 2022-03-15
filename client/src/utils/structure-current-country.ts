@@ -6,7 +6,7 @@ export function structureCountryData(input: CountryBasicInfo) {
     {
       title: "Language",
       index: "language",
-      content: input?.languages,
+      content: input?.languages?.[0],
     },
     {
       title: "Total size",
@@ -24,7 +24,7 @@ export function structureCountryData(input: CountryBasicInfo) {
     {
       iconId: "currency",
       index: "currency",
-      content: input?.currencies,
+      content: input?.currencies?.[0],
     },
     {
       iconId: "location",

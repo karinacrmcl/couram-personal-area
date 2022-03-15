@@ -4,6 +4,7 @@ import { Button } from "../../../shared/components/button";
 import GlobalSelector from "../../../shared/icons/svg-selector";
 import { CountryBasicInfo } from "../../../types/country";
 import s from "./media.module.scss";
+import ReactPlayer from "react-player";
 
 type Props = {
   country: CountryBasicInfo;
@@ -28,7 +29,6 @@ export function Media({ country }: Props) {
             <p>5:00</p>
           </div>
         </div>
-
         <div className={s.media_shadow}></div>
       </CardLayout>
       <Button
