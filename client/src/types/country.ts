@@ -11,7 +11,14 @@ export type CountryBasicInfo = {
   coverPhoto: {
     largeUrl: string;
   };
+
   content: {
     facts: [{ title: string; body: string }];
+    video: {
+      title: string;
+      url: string;
+      location: string;
+      previewUrl: string;
+    };
   };
 };
