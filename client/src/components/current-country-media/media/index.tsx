@@ -7,6 +7,7 @@ import s from "./media.module.scss";
 import ReactPlayer from "react-player";
 import { formatDuration } from "../../../utils/format-duration";
 import { useModalContext } from "../../../context/modal";
+import { VideoPlayer } from "../../video-player";
 
 type Props = {
   country: CountryBasicInfo;
@@ -50,7 +51,13 @@ export function Media({ country }: Props) {
           transform: "translateY(-50%)",
           left: "-35px",
         }}
-        onClick={() => setContent(<p>ok</p>)}
+        onClick={() =>
+          setContent(
+            <>
+              <VideoPlayer url={country?.content?.video?.url} />
+            </>
+          )
+        }
       >
         <GlobalSelector id="play" />
       </Button>

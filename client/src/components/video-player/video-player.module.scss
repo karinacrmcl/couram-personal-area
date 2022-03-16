@@ -1,0 +1,36 @@
+.videoplayer {
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.9);
+  transition: all 4s linear 2s;
+
+  &_closebutton {
+    background: none;
+    border: none;
+    outline: none;
+
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: 20;
+
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateX(-10px);
+    }
+
+    & svg {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
