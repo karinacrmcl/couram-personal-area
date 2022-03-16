@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useCallback } from "react";
 import { ModalContext } from "../context/modal";
 import { ModalBackground } from "../shared/components/modal";
 
@@ -7,12 +7,16 @@ type Props = {
 };
 
 export default function ModalProvider({ children }: Props) {
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState<ReactNode>(null);
 
-  const setContentHandler = (items: ReactNode) => {
-    console.log(items);
-    setContent(items);
+  const setContentHandler = (content: ReactNode) => {
+    setContent(content);
+    console.log(content);
   };
+  // useCallback(
+  //   (content: ReactNode) => setContent(content),
+  //   []
+  // );
 
   return (
     <ModalContext.Provider value={{ content, setContent: setContentHandler }}>

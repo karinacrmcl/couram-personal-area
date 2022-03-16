@@ -1,8 +1,12 @@
 import { createContext, ReactNode, useContext } from "react";
 
-type ContextState = {
+type Content = {
   content: ReactNode | null | undefined;
-  setContent: (content: ReactNode) => void;
+};
+
+type ContextState = {
+  content: Content["content"];
+  setContent: (content: Content["content"]) => void;
 };
 
 export const ModalContext = createContext({} as ContextState);
