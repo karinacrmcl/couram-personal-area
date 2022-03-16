@@ -5,6 +5,7 @@ import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
 import GlobalSelector from "../../shared/icons/svg-selector";
+import { checkStoredIds, storeId } from "../../utils/local-storage";
 import { structureCountryData } from "../../utils/structure-current-country";
 import { structureWeatherData } from "../../utils/structure-state-data";
 import s from "./country.module.scss";
@@ -16,10 +17,10 @@ export function CurrentCountryInfo() {
 
   const context = useCurrentCountryContext();
   const weather = useCityWeather(context?.country.capital);
+
   const { countryBasicInfo, countryStats, coverPhoto } = structureCountryData(
     context.country
   );
-
   const { degrees, time, date } = structureWeatherData(weather);
 
   return (
@@ -60,7 +61,12 @@ export function CurrentCountryInfo() {
 
           <div className={s.country_shadow}></div>
         </div>
-        <Favourite active={false} onClick={() => console.log()} />
+        {context.country.name && (
+          <Favourite
+            onClick={() => storeId(context.country.name)}
+            active={checkStoredIds(context.country.name)}
+          />
+        )}
       </CardLayout>
       <div className={s.country_bottom}>
         <div className={s.country_stats}>

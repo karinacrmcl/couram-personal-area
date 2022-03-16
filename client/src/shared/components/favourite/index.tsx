@@ -12,6 +12,7 @@ export function Favourite({ onClick, active }: Props) {
   function onClickHandler() {
     setIsActive(!isActive);
     onClick();
+    console.log(active);
   }
 
   return (
