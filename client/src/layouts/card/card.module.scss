@@ -1,10 +1,15 @@
 .card {
+  &_opened {
+    height: 300px !important;
+    transition: all 5s;
+  }
   &_large,
   &_small,
   &_middle {
     border-radius: 30px;
     position: relative;
     overflow: hidden;
+    transition: all 1s;
 
     & img {
       width: 100%;
