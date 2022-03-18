@@ -2,7 +2,7 @@ import { db } from "../database/createConnection";
 import { Country } from "../model/country.model";
 import { Temp } from "../model/temp.model";
 
-export const getCountry = async (req, res) => {
+export const getCurrentCountry = async (req, res) => {
   try {
     const response = await db.collection("temp").findOne({});
     // const response = await Temp.find({});
