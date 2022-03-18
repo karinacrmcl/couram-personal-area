@@ -3,7 +3,7 @@ export function getStoredIds() {
   return storedIds;
 }
 
-export function storeId(item: string) {
+export function storeId(item: number) {
   const ids = getStoredIds();
   if (checkStoredIds(item)) {
     let index = ids.indexOf(item);
@@ -17,6 +17,6 @@ export function storeId(item: string) {
   }
 }
 
-export function checkStoredIds(item: string) {
+export function checkStoredIds(item: number) {
   return getStoredIds().includes(item);
 }

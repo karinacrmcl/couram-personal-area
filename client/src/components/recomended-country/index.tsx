@@ -69,8 +69,8 @@ export function RecomendedCountry({ item }: Props) {
           </div>
 
           <Favourite
-            onClick={() => storeId(item?.name)}
-            active={checkStoredIds(item.name)}
+            onClick={() => storeId(item?.id)}
+            active={checkStoredIds(item.id)}
           />
         </div>
         <div className={s.country_shadow}></div>

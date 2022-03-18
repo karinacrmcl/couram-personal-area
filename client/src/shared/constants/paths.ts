@@ -1,1 +1,1 @@
-export const paths = ["/", "favourites", "explore", "all-countries"];
+export const paths = ["/", "/favourites", "/explore-more", "/all-countries"];
