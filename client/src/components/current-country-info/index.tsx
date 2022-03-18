@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useCurrentCountryContext } from "../../context/current-country";
+import { useExtendedInfoContext } from "../../context/extended-info";
 import { useCityWeather } from "../../hooks/useCityWeather";
 import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
@@ -15,13 +16,19 @@ export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });
   const isMobile = useMediaQuery({ maxWidth: "450px" });
 
+  //getting data :/
   const context = useCurrentCountryContext();
   const weather = useCityWeather(context?.country.capital);
 
+  //structuring data :/
   const { countryBasicInfo, countryStats, coverPhoto } = structureCountryData(
     context.country
   );
   const { degrees, time, date } = structureWeatherData(weather);
+
+  // check if "exploration" has started
+
+  const { isExtendedOpen, setIsExtendedOpen, setId } = useExtendedInfoContext();
 
   return (
     <div className={s.country}>
@@ -84,7 +91,7 @@ export function CurrentCountryInfo() {
             <p>Start exploring</p>
             <h3>{context.country?.name}</h3>
           </div>
-          <Button size="large">
+          <Button size="large" onClick={() => setIsExtendedOpen(true)}>
             <GlobalSelector id="play" />
           </Button>
         </div>

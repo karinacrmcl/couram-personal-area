@@ -1,6 +1,5 @@
 import React from "react";
 import { useFavourites } from "../../hooks/useFavourites";
-import { getFavourites } from "../../utils/get-favourites";
 
 type Props = {};
 
