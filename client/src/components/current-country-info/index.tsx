@@ -63,8 +63,8 @@ export function CurrentCountryInfo() {
         </div>
         {context.country.name && (
           <Favourite
-            onClick={() => storeId(context.country.name)}
-            active={checkStoredIds(context.country.name)}
+            onClick={() => storeId(context.country.id)}
+            active={checkStoredIds(context.country.id)}
           />
         )}
       </CardLayout>
@@ -88,8 +88,7 @@ export function CurrentCountryInfo() {
             <GlobalSelector id="play" />
           </Button>
         </div>
-      </div>{" "}
-      {/* */}
+      </div>
     </div>
   );
 }

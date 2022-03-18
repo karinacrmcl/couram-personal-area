@@ -53,9 +53,7 @@ export function Media({ country }: Props) {
         }}
         onClick={() =>
           setContent(
-            <>
               <VideoPlayer url={country?.content?.video?.url} />
-            </>
           )
         }
       >
