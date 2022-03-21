@@ -6,10 +6,8 @@ type Props = {
 };
 
 export default function ExtendedInfoProvider({ children }: Props) {
-  const [isExtendedOpen, setIsExtendedOpen] = useState<boolean>(false);
+  const [isExtendedOpen, setIsExtendedOpen] = useState<boolean>(true);
   const [id, setId] = useState(1);
-
-  console.log(isExtendedOpen);
 
   const setOpenHandler = (isOpen: boolean) => {
     setIsExtendedOpen(isOpen);

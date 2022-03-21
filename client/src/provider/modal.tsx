@@ -11,12 +11,7 @@ export default function ModalProvider({ children }: Props) {
 
   const setContentHandler = (content: ReactNode) => {
     setContent(content);
-    console.log(content);
   };
-  // useCallback(
-  //   (content: ReactNode) => setContent(content),
-  //   []
-  // );
 
   return (
     <ModalContext.Provider value={{ content, setContent: setContentHandler }}>
