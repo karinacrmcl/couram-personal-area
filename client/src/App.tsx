@@ -20,7 +20,7 @@ function App() {
             {/*  <Route path="dashboard" element={<Dashboard />} />
            </Route>*/}
             <Route path="*" element={<NotFound />} />
-          </Routes>{" "}
+          </Routes>
         </ExtendedInfoProvider>
       </div>
     </>

@@ -1,23 +1,24 @@
 import classNames from "classnames";
 import React, { CSSProperties, ReactNode } from "react";
-import { useExtendedInfoContext } from "../../context/extended-info";
 import s from "./card.module.scss";
 
 type Props = {
   type: "large" | "middle" | "small";
   children: ReactNode;
-  styles?: CSSProperties;
   bgUrl?: string;
+  styles?: CSSProperties;
+  resize?: {
+    state: boolean;
+    styles: CSSProperties;
+  };
 };
 
-export function CardLayout({ children, type, styles = {}, bgUrl }: Props) {
-  const { isExtendedOpen } = useExtendedInfoContext();
-
+export function CardLayout({ children, styles, type, bgUrl, resize }: Props) {
   return (
     <div
-      style={isExtendedOpen ? {} : { ...styles }}
+      style={resize?.state ? { ...styles, ...resize?.styles } : { ...styles }}
       className={classNames(s[`card_${type}`], {
-        [s.card_opened]: isExtendedOpen,
+        [s.card_opened]: resize?.state,
       })}
     >
       {bgUrl ? <img src={bgUrl} /> : null}
