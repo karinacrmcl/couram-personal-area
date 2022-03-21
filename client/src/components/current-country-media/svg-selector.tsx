@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SvgSelector({ id }) {
+export default function SvgSelector({ id }: { id: string }) {
   switch (id) {
     case "question":
       return (
