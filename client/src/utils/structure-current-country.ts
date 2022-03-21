@@ -2,15 +2,15 @@ import { CountryBasicInfo } from "../types/country";
 
 export function structureCountryData(input: CountryBasicInfo) {
   const countryBasicInfo = [
-    { title: "Capital", index: "capital", content: input?.capital },
+    { label: "Capital", iconId: "capital", content: input?.capital },
     {
-      title: "Language",
-      index: "language",
+      label: "Language",
+      iconId: "language",
       content: input?.languages?.[0],
     },
     {
-      title: "Total size",
-      index: "total_size",
+      label: "Total size",
+      iconId: "total_size",
       content: `${input?.totalSize} km² `,
     },
   ];
@@ -18,22 +18,22 @@ export function structureCountryData(input: CountryBasicInfo) {
   const countryStats = [
     {
       iconId: "popualtion",
-      index: "popualtion",
+      label: "popualtion",
       content: input?.population,
     },
     {
       iconId: "currency",
-      index: "currency",
+      label: "currency",
       content: input?.currencies?.[0],
     },
     {
       iconId: "location",
-      index: "location",
+      label: "location",
       content: input?.subregion,
     },
     {
       iconId: "climate",
-      index: "climate",
+      label: "climate",
       content: input?.climate,
     },
   ];
