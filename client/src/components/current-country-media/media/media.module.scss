@@ -1,5 +1,6 @@
 .media {
   position: relative;
+  height: inherit;
   @media (max-width: 1200px) {
     display: none;
   }
@@ -13,7 +14,8 @@
     z-index: -10;
   }
   &_content {
-    height: 124.22px;
+    height: inherit;
+    // height: 124.22px;
 
     display: flex;
     flex-direction: column;

@@ -8,6 +8,7 @@ import ReactPlayer from "react-player";
 import { formatDuration } from "../../../utils/format-duration";
 import { useModalContext } from "../../../context/modal";
 import { VideoPlayer } from "../../video-player";
+import { useExtendedInfoContext } from "../../../context/extended-info";
 
 type Props = {
   country: CountryBasicInfo;
@@ -16,10 +17,15 @@ type Props = {
 export function Media({ country }: Props) {
   const [duration, setDuration] = useState("");
   const { setContent } = useModalContext();
+  const { isExtendedOpen } = useExtendedInfoContext();
 
   return (
     <div className={s.media}>
-      <CardLayout type="small" styles={{ width: "401px", height: "460px" }}>
+      <CardLayout
+        type="small"
+        styles={{ width: "401px", height: "460px" }}
+        resize={{ state: isExtendedOpen, styles: { height: 0, width: 0 } }}
+      >
         <div className={s.media_content}>
           <h3>{country?.content?.video?.title}</h3>
           <div className={s.media_location}>
@@ -52,9 +58,7 @@ export function Media({ country }: Props) {
           left: "-35px",
         }}
         onClick={() =>
-          setContent(
-              <VideoPlayer url={country?.content?.video?.url} />
-          )
+          setContent(<VideoPlayer url={country?.content?.video?.url} />)
         }
       >
         <GlobalSelector id="play" />

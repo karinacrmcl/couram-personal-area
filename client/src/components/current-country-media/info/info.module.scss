@@ -1,4 +1,6 @@
 .info {
+  height: inherit;
+
   @media (max-width: 950px) {
     margin-top: 50px;
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useExtendedInfoContext } from "../../../context/extended-info";
 import { CardLayout } from "../../../layouts/card";
 import { Button } from "../../../shared/components/button";
 import { CountryBasicInfo } from "../../../types/country";
@@ -14,6 +15,7 @@ type Props = {
 export function Information({ country }: Props) {
   const isLaptop = useMediaQuery({ maxWidth: "1200px" });
   const { factsContent } = structureCountryData(country);
+  const { isExtendedOpen } = useExtendedInfoContext();
 
   return (
     <div className={s.info}>
@@ -24,6 +26,7 @@ export function Information({ country }: Props) {
           height: isLaptop ? "100%" : "460px",
           boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)",
         }}
+        resize={{ state: isExtendedOpen, styles: { height: 0, width: 0 } }}
       >
         <div className={s.info_content}>
           <div className={s.info_heading}>
@@ -43,9 +46,14 @@ export function Information({ country }: Props) {
               );
             })}
           </div>
-          <Button size="small">
-            <SvgSelector id="map" />
-          </Button>
+          <a href={country?.content?.geography?.mapsUrl}>
+            <Button
+              size="small"
+              styles={{ position: "absolute", right: "25px", bottom: "25px" }}
+            >
+              <SvgSelector id="map" />
+            </Button>
+          </a>
         </div>
       </CardLayout>
     </div>
