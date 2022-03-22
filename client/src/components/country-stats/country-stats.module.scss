@@ -1,0 +1,56 @@
+.countrystats {
+  min-width: 470px;
+  min-height: 575px;
+  width: 470px;
+  height: 575px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.19);
+  border-radius: 30px;
+
+  padding: 50px 45px;
+  &_content {
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &_item {
+    &_container {
+      width: 100%;
+      height: 30px;
+
+      display: flex;
+      align-items: center;
+      & svg {
+        width: 25px;
+        height: 25px;
+      }
+      & h4 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 142.5%;
+
+        letter-spacing: 0.05em;
+        color: #222222;
+        padding: 0;
+        margin: 0 0 0 30px;
+
+        text-transform: capitalize;
+      }
+      & p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 142.5%;
+
+        letter-spacing: 0.05em;
+        color: #5b5b5b;
+        margin-left: auto;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

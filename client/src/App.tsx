@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Router, Routes } from "react-router";
+import React, { useEffect } from "react";
+import { Route, Router, Routes, useLocation } from "react-router";
 import { Menu } from "./components/menu";
 import HeaderContainer from "./containers/header";
 import Favourites from "./pages/favourites";
