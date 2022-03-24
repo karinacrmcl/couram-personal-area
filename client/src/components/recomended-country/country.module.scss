@@ -1,7 +1,8 @@
 .country {
   cursor: default;
   user-select: none;
-  &::hover {
+  margin-left: 25px;
+  &:hover {
   }
   &_shadow {
     width: 100%;
