@@ -70,16 +70,20 @@
       height: 65px;
     }
     & svg {
+      & path {
+        width: 15px;
+        height: 15px;
+      }
       margin-right: 10px;
 
-      min-width: 18px;
+      min-width: 25px;
       max-width: 25px;
-      min-height: 18px;
-      max-height: 25px;
+      // min-height: 18px;
+      // max-height: 25px;
     }
   }
   &_input {
-    height: 80px;
+    height: 100%;
     width: 100%;
 
     font-style: normal;
@@ -92,7 +96,9 @@
     border: none;
     margin-top: 5px;
 
-    padding: 30px 0;
+    font-family: "Epilogue";
+    cursor: pointer;
+    // padding: 30px 0;
     outline: none;
   }
 }

@@ -5,29 +5,22 @@ import { Select } from "../../shared/components/select";
 import GlobalSelector from "../../shared/icons/svg-selector";
 import { useMediaQuery } from "react-responsive";
 import s from "./search.module.scss";
+import { useCurrentCountryContext } from "../../context/current-country";
 
 type Props = {};
 
 export function Search(props: Props) {
   const [value, setValue] = useState("");
-  const items = [
-    { value: "Barbados, Bridgetown" },
-    { value: "Belarus, Minsk " },
-    { value: "Belgium, Brussels " },
-    { value: "Belize, Belmopan" },
-    { value: "Benin, Porto Novo" },
-    { value: "Bhutan, Thimphu " },
-    { value: "Bolivia, La Paz" },
-  ];
 
   const isMobile = useMediaQuery({ maxWidth: "700px" });
   const isMobileXS = useMediaQuery({ maxWidth: "600px" });
+  const context = useCurrentCountryContext();
 
   return (
     <div className={s.search}>
       <CardLayout
         type="large"
-        bgUrl="/images/search-bg.jpg"
+        bgUrl={context?.country?.coverPhoto?.largeUrl}
         styles={{ width: "100%", height: "250px" }}
       >
         <div className={s.search_content}>
@@ -46,7 +39,7 @@ export function Search(props: Props) {
           onChange={(e) => setValue(e.target.value)}
         />
         <hr />
-        {!isMobile && (
+        {/* {!isMobile && (
           <>
             <GlobalSelector id="location" />
             <Select
@@ -54,7 +47,7 @@ export function Search(props: Props) {
               items={items}
             />
           </>
-        )}
+        )} */}
         {!isMobileXS && (
           <Button
             size="small"
