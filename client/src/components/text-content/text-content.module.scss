@@ -1,0 +1,35 @@
+.textcontent {
+  height: 100%;
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  & h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 33px;
+
+    color: #222222;
+  }
+
+  &_body {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Epilogue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 142.5%;
+
+    color: #5b5b5b;
+    margin: 0;
+    padding: 0;
+  }
+}
