@@ -1,0 +1,15 @@
+.exploration {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  grid-gap: 60px;
+  position: relative;
+  &_divided {
+    display: flex;
+    align-items: flex-start;
+
+    grid-gap: 50px;
+  }
+}
