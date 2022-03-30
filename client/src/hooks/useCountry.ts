@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export function useCountry(id: string) {
+export function useCountry(id: number) {
   let bar: any = {};
   const [country, setCountry] = useState(bar);
   useEffect(() => {
