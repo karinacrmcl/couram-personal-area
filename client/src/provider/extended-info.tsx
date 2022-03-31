@@ -1,4 +1,5 @@
-import React, { ReactNode, useState, useCallback } from "react";
+import React, { ReactNode, useState, useCallback, useEffect } from "react";
+import { useLocation } from "react-router";
 import { ExtendedInfoContext } from "../context/extended-info";
 
 type Props = {
@@ -6,12 +7,18 @@ type Props = {
 };
 
 export default function ExtendedInfoProvider({ children }: Props) {
-  const [isExtendedOpen, setIsExtendedOpen] = useState<boolean>(true);
-  const [id, setId] = useState(1);
+  const location = useLocation();
+  const [isExtendedOpen, setIsExtendedOpen] = useState<boolean>(false);
+  const [id, setId] = useState(0);
 
   const setOpenHandler = (isOpen: boolean) => {
     setIsExtendedOpen(isOpen);
   };
+
+  useEffect(() => {
+    setIsExtendedOpen(false);
+    setId(0);
+  }, [location]);
 
   return (
     <ExtendedInfoContext.Provider
