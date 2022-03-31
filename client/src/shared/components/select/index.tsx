@@ -12,7 +12,7 @@ export function Select({ defaultValue, items }: Props) {
   return (
     <div className={s.select}>
       <div className={s.select_active}>{defaultValue.value}</div>
-      {/* <div className={s.select_list}>
+      <div className={s.select_list}>
         {items.map((item, i) => {
           return (
             <div key={i} className={s.select_item}>
@@ -20,7 +20,7 @@ export function Select({ defaultValue, items }: Props) {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 }

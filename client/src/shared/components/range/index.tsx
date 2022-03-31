@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-type Props = {};
+type Props = {
+  minValue: number;
+  maxValue: number;
+  step: number;
+  startValue: number;
+  endValue: number;
+};
 
-export function RangeOK({}: Props) {
-  const STEP = 1;
-  const MIN = 10;
-  const MAX = 100;
-  const [values, setValues] = useState([25, 75]);
+export function FilterRange({
+  minValue,
+  maxValue,
+  step,
+  startValue,
+  endValue,
+}: Props) {
+  const STEP = step;
+  const MIN = minValue;
+  const MAX = maxValue;
+  const [values, setValues] = useState([startValue, endValue]);
 
   return (
     <div>
@@ -33,12 +45,12 @@ export function RangeOK({}: Props) {
             <div
               ref={props.ref}
               style={{
-                height: "5px",
+                height: "4px",
                 width: "100%",
                 borderRadius: "4px",
                 background: getTrackBackground({
                   values,
-                  colors: ["#ccc", "#548BF4", "#ccc"],
+                  colors: ["#D3D3D3", " #575757", "#D3D3D3"],
                   min: MIN,
                   max: MAX,
                 }),
@@ -54,13 +66,14 @@ export function RangeOK({}: Props) {
             {...props}
             style={{
               ...props.style,
-              height: "42px",
-              width: "42px",
-              borderRadius: "4px",
+              height: "15px",
+              width: "15px",
+              borderRadius: "100px",
               backgroundColor: "#FFF",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              outline: "none",
               boxShadow: "0px 2px 6px #AAA",
             }}
           >
@@ -68,7 +81,7 @@ export function RangeOK({}: Props) {
               style={{
                 height: "16px",
                 width: "5px",
-                backgroundColor: isDragged ? "#548BF4" : "#CCC",
+                backgroundColor: isDragged ? "#ffffff" : "#ffffff",
               }}
             />
           </div>

@@ -21,6 +21,12 @@ export type CountryBasicInfo = {
       location: string;
       previewUrl: string;
     };
+    geography: {
+      mapsUrl: string;
+    };
+    overview: {
+      body: string;
+    };
   };
 };
 export type CountryFullInfo = {
