@@ -4,21 +4,21 @@ type Props = {
   minValue: number;
   maxValue: number;
   step: number;
-  startValue: number;
-  endValue: number;
+  defValues: number[];
+  setNewValues: (items: number[]) => void;
 };
 
 export function FilterRange({
   minValue,
   maxValue,
   step,
-  startValue,
-  endValue,
+  defValues,
+  setNewValues,
 }: Props) {
   const STEP = step;
   const MIN = minValue;
   const MAX = maxValue;
-  const [values, setValues] = useState([startValue, endValue]);
+  const [values, setValues] = useState(defValues);
 
   return (
     <div>
@@ -28,6 +28,7 @@ export function FilterRange({
         min={MIN}
         max={MAX}
         onChange={(values) => {
+          setNewValues(values);
           setValues(values);
         }}
         renderTrack={({ props, children }) => (
