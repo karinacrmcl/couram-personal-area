@@ -7,6 +7,8 @@ import s from "./results.module.scss";
 
 type DropdownProps = {
   children: ReactNode;
+  preview: number[];
+  unit: string;
 };
 
 type ContentProps = {
@@ -16,41 +18,96 @@ type ContentProps = {
 
 type Props = {};
 
-function DropdownContent({ children }: ContentProps) {
-  return <div>{children}</div>;
-}
-
-function Dropdown({ children }: DropdownProps) {
+function Dropdown({ children, preview, unit }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState(null);
   // const [selectedItemId, setSelectedItemId] = useState(defaultSelected.key);
 
-  const dataSetHandler = (data: any) => {
-    setData(data);
-  };
-
   return (
-    <div className={s.dropdown}>
+    <div
+      className={classNames(s.dropdown, {
+        [s.dropdown_active__open]: isOpen,
+      })}
+    >
       <button
         className={classNames(s.dropdown_active, {
           [s.dropdown_active__open]: isOpen,
         })}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className={s.dropdown_active__value}>{data}</div>
+        <div className={s.dropdown_active__top}>
+          <div className={s.dropdown_active__value}>
+            {`${preview[0]} - ${preview[1]} ${unit}`}
+          </div>
+          <div
+            className={s.dropdown_active__expand}
+            style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
+          >
+            <GlobalSelector id="arrow-down" />
+          </div>
+        </div>
+
         <div
-          className={s.dropdown_active__expand}
-          style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
+          className={classNames(s.dropdown_content, {
+            [s.dropdown_content__open]: isOpen,
+          })}
         >
-          <GlobalSelector id="arrow-down" />
+          {children}
         </div>
       </button>
-      <TransitionWrapper state={isOpen}>
-        <DropdownContent>{children}</DropdownContent>
-      </TransitionWrapper>
     </div>
   );
 }
+
+type FilterOptions = {
+  item: {
+    minValue: number;
+    maxValue: number;
+    startValue: number;
+    endValue: number;
+    step: number;
+    unit: string;
+  };
+};
+
+function SelectFilters({ item }: FilterOptions) {
+  const [values, setValues] = useState([item.startValue, item.endValue]);
+
+  function handleSetValues(items: number[]) {
+    setValues(items);
+  }
+
+  return (
+    <Dropdown preview={values} unit={item.unit}>
+      <FilterRange
+        minValue={item.minValue}
+        maxValue={item.maxValue}
+        defValues={values}
+        setNewValues={handleSetValues}
+        step={item.step}
+      />
+    </Dropdown>
+  );
+}
+
+const filterParams = [
+  {
+    minValue: 1000,
+    maxValue: 10000000000,
+    startValue: 100000,
+    endValue: 300000,
+    step: 1000,
+    unit: "km²",
+  },
+  {
+    minValue: 1,
+    maxValue: 1000,
+    startValue: 10,
+    endValue: 200,
+    step: 1,
+    unit: "million",
+  },
+];
 
 export function Results(props: Props) {
   return (
@@ -58,15 +115,9 @@ export function Results(props: Props) {
       <div className={s.results_top}>
         <h3>Results</h3>
         <div className={s.results_params}>
-          <Dropdown>
-            <FilterRange
-              minValue={1000}
-              maxValue={10000000000}
-              startValue={100000}
-              endValue={300000}
-              step={1000}
-            />
-          </Dropdown>
+          {filterParams.map((item) => {
+            return <SelectFilters item={item} />;
+          })}
         </div>
       </div>
     </div>
