@@ -1,63 +1,12 @@
 import classNames from "classnames";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
+import { Dropdown } from "../../shared/components/dropdown";
 import { FilterRange } from "../../shared/components/range";
-import { TransitionWrapper } from "../../shared/components/transition";
-import GlobalSelector from "../../shared/icons/svg-selector";
+import { filterParams } from "../../shared/constants/searchFilters";
+import { numberWithCommas } from "../../utils/splitNumber";
 import s from "./results.module.scss";
 
-type DropdownProps = {
-  children: ReactNode;
-  preview: number[];
-  unit: string;
-};
-
-type ContentProps = {
-  // setData: (data: any) => void;
-  children: ReactNode;
-};
-
 type Props = {};
-
-function Dropdown({ children, preview, unit }: DropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState(null);
-  // const [selectedItemId, setSelectedItemId] = useState(defaultSelected.key);
-
-  return (
-    <div
-      className={classNames(s.dropdown, {
-        [s.dropdown_active__open]: isOpen,
-      })}
-    >
-      <button
-        className={classNames(s.dropdown_active, {
-          [s.dropdown_active__open]: isOpen,
-        })}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className={s.dropdown_active__top}>
-          <div className={s.dropdown_active__value}>
-            {`${preview[0]} - ${preview[1]} ${unit}`}
-          </div>
-          <div
-            className={s.dropdown_active__expand}
-            style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
-          >
-            <GlobalSelector id="arrow-down" />
-          </div>
-        </div>
-
-        <div
-          className={classNames(s.dropdown_content, {
-            [s.dropdown_content__open]: isOpen,
-          })}
-        >
-          {children}
-        </div>
-      </button>
-    </div>
-  );
-}
 
 type FilterOptions = {
   item: {
@@ -67,18 +16,30 @@ type FilterOptions = {
     endValue: number;
     step: number;
     unit: string;
+    icon: string;
   };
 };
 
 function SelectFilters({ item }: FilterOptions) {
   const [values, setValues] = useState([item.startValue, item.endValue]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   function handleSetValues(items: number[]) {
     setValues(items);
   }
 
+  function handleOpen() {
+    setIsDropdownOpen(!isDropdownOpen);
+  }
+
   return (
-    <Dropdown preview={values} unit={item.unit}>
+    <Dropdown
+      preview={values}
+      isOpen={isDropdownOpen}
+      handleOpen={handleOpen}
+      unit={item.unit}
+      icon={item.icon}
+    >
       <FilterRange
         minValue={item.minValue}
         maxValue={item.maxValue}
@@ -90,22 +51,51 @@ function SelectFilters({ item }: FilterOptions) {
   );
 }
 
-const filterParams = [
+const ii = [
   {
-    minValue: 1000,
-    maxValue: 10000000000,
-    startValue: 100000,
-    endValue: 300000,
-    step: 1000,
-    unit: "km²",
+    name: "Canada",
+    totalSize: 9984670,
+    population: 5468436447,
   },
   {
-    minValue: 1,
-    maxValue: 1000,
-    startValue: 10,
-    endValue: 200,
-    step: 1,
-    unit: "million",
+    name: "China",
+    totalSize: 9984670,
+    population: 345436447,
+  },
+  {
+    name: "United States",
+    totalSize: 9984670,
+    population: 679436447,
+  },
+  {
+    name: "Brazil",
+    totalSize: 9984670,
+    population: 15436447,
+  },
+  {
+    name: "Australia",
+    totalSize: 9984670,
+    population: 122436447,
+  },
+  {
+    name: "India",
+    totalSize: 9984670,
+    population: 89736447,
+  },
+  {
+    name: "Argentina",
+    totalSize: 9984670,
+    population: 436447,
+  },
+  {
+    name: "Algeria",
+    totalSize: 9984670,
+    population: 384447,
+  },
+  {
+    name: "Kazakhstan",
+    totalSize: 9984670,
+    population: 38436,
   },
 ];
 
@@ -116,10 +106,31 @@ export function Results(props: Props) {
         <h3>Results</h3>
         <div className={s.results_params}>
           {filterParams.map((item) => {
-            return <SelectFilters item={item} />;
+            return <SelectFilters item={item} key={item.id} />;
           })}
         </div>
       </div>
+      <table className={s.results_table}>
+        <thead>
+          <th>Name</th>
+          <th>Total size</th>
+          <th>Population</th>
+        </thead>
+        <tbody>
+          {ii.map((item) => {
+            return (
+              <tr>
+                <td>{item.name}</td>
+                <td>
+                  {numberWithCommas(item.totalSize)}
+                  <span>km²</span>
+                </td>
+                <td>{numberWithCommas(item.population)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
