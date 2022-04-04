@@ -1,0 +1,99 @@
+.dropdown {
+  width: 260px;
+  height: 50px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 35px;
+
+  transition: all 0.2s;
+  overflow: hidden;
+
+  &_active {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    &__expand {
+      width: 20px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    &__top {
+      width: 100%;
+
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+    }
+    &__value {
+      display: flex;
+      align-items: center;
+      width: 90%;
+
+      & p {
+        font-style: normal;
+        font-family: "Epilogue";
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 142.5%;
+
+        color: #222222;
+        margin: 0;
+        padding: 0;
+
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      & svg {
+        min-width: 25px;
+        min-height: 25px;
+        max-width: 25px;
+        max-height: 25px;
+
+        margin-top: -4px;
+        margin-right: 10px;
+      }
+    }
+
+    &__open {
+      width: 400px;
+      height: 150px;
+    }
+  }
+
+  &_content {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+
+    transition: all 0.2s;
+    margin-top: 25px;
+    &__values {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      transition: all 0.1s;
+
+      & p {
+        font-family: "Epilogue";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 142.5%;
+
+        color: #5b5b5b;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    &__open {
+      width: 100%;
+      height: 0px;
+
+      opacity: 1;
+    }
+  }
+}
