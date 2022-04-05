@@ -1,10 +1,14 @@
-import { createContext, useContext } from "react";
+import { createContext, ReactNode, useContext } from "react";
+
+export type Options = {
+  name: string | null;
+  size: number | null;
+  population: number | null;
+};
 
 type ContextState = {
-  searchTerm: string | null;
-  setSearchTerm: (item: string) => void;
-  results: [];
-  setResults: (items: string) => void;
+  searchTerm: Options;
+  setSearchTerm: (item: Options) => void;
 };
 
 export const SearchContext = createContext({} as ContextState);

@@ -6,15 +6,21 @@ import GlobalSelector from "../../shared/icons/svg-selector";
 import { useMediaQuery } from "react-responsive";
 import s from "./search.module.scss";
 import { useCurrentCountryContext } from "../../context/current-country";
+import { useSearchContext } from "../../context/search";
 
 type Props = {};
 
 export function Search(props: Props) {
   const [value, setValue] = useState("");
+  const { setSearchTerm } = useSearchContext();
 
   const isMobile = useMediaQuery({ maxWidth: "700px" });
   const isMobileXS = useMediaQuery({ maxWidth: "600px" });
   const context = useCurrentCountryContext();
+
+  const searchInputHandler = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className={s.search}>

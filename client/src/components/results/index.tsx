@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import React, { ReactNode, useEffect, useState } from "react";
+import { useCountries } from "../../hooks/useCountries";
 import { Dropdown } from "../../shared/components/dropdown";
 import { FilterRange } from "../../shared/components/range";
 import { filterParams } from "../../shared/constants/searchFilters";
+import { CountryBasicInfo } from "../../types/country";
 import { numberWithCommas } from "../../utils/splitNumber";
 import s from "./results.module.scss";
 
@@ -51,55 +53,10 @@ function SelectFilters({ item }: FilterOptions) {
   );
 }
 
-const ii = [
-  {
-    name: "Canada",
-    totalSize: 9984670,
-    population: 5468436447,
-  },
-  {
-    name: "China",
-    totalSize: 9984670,
-    population: 345436447,
-  },
-  {
-    name: "United States",
-    totalSize: 9984670,
-    population: 679436447,
-  },
-  {
-    name: "Brazil",
-    totalSize: 9984670,
-    population: 15436447,
-  },
-  {
-    name: "Australia",
-    totalSize: 9984670,
-    population: 122436447,
-  },
-  {
-    name: "India",
-    totalSize: 9984670,
-    population: 89736447,
-  },
-  {
-    name: "Argentina",
-    totalSize: 9984670,
-    population: 436447,
-  },
-  {
-    name: "Algeria",
-    totalSize: 9984670,
-    population: 384447,
-  },
-  {
-    name: "Kazakhstan",
-    totalSize: 9984670,
-    population: 38436,
-  },
-];
-
 export function Results(props: Props) {
+  const countryList = useCountries();
+  const previewList = countryList?.data?.slice(0, 10);
+
   return (
     <div className={s.results}>
       <div className={s.results_top}>
@@ -117,9 +74,9 @@ export function Results(props: Props) {
           <th>Population</th>
         </thead>
         <tbody>
-          {ii.map((item) => {
+          {previewList?.map((item: CountryBasicInfo) => {
             return (
-              <tr>
+              <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>
                   {numberWithCommas(item.totalSize)}
