@@ -9,7 +9,7 @@ type Props = {
 export default function SearchProvider({ children }: Props) {
   const [searchTerm, setSearchTerm] = useState<Options>({
     name: null,
-    size: null,
+    area: null,
     population: null,
   });
   const [results, setResults] = useState([]);
