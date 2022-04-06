@@ -12,15 +12,11 @@ type Props = {};
 
 export function Search(props: Props) {
   const [value, setValue] = useState("");
-  const { setSearchTerm } = useSearchContext();
+  const { searchTerm, setSearchTerm } = useSearchContext();
 
   const isMobile = useMediaQuery({ maxWidth: "700px" });
   const isMobileXS = useMediaQuery({ maxWidth: "600px" });
   const context = useCurrentCountryContext();
-
-  const searchInputHandler = (e) => {
-    setValue(e.target.value);
-  };
 
   return (
     <div className={s.search}>
@@ -66,6 +62,7 @@ export function Search(props: Props) {
               maxHeight: "50px",
               minHeight: "50px",
             }}
+            onClick={() => setSearchTerm({ ...searchTerm, name: value })}
           >
             Search
           </Button>
