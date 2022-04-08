@@ -2,6 +2,7 @@ import classNames from "classnames";
 import s from "./dropdown.module.scss";
 import React, { ReactNode } from "react";
 import GlobalSelector from "../../icons/svg-selector";
+import { numberWithCommas } from "../../../utils/split-number";
 
 type DropdownProps = {
   children: ReactNode;
@@ -34,7 +35,9 @@ export function Dropdown({
         <div className={s.dropdown_active__top}>
           <div className={s.dropdown_active__value}>
             <GlobalSelector id={icon} />
-            <p>{`${preview[0]} - ${preview[1]} ${unit}`}</p>
+            <p>{`${numberWithCommas(preview[0])} - ${numberWithCommas(
+              preview[1]
+            )} ${unit}`}</p>
           </div>
           <button
             className={s.dropdown_active__expand}
