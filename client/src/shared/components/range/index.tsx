@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Range, getTrackBackground } from "react-range";
+// import { Range, getTrackBackground } from "react-range";
+import Range from "rc-slider";
+import "rc-slider/assets/index.css";
+
 type Props = {
   minValue: number;
   maxValue: number;
@@ -20,9 +23,37 @@ export function FilterRange({
   const MAX = maxValue;
   const [values, setValues] = useState(defValues);
 
+  const handleStyle = {
+    backgroundColor: "#222222",
+    opacity: 1,
+    width: 15,
+    height: 15,
+    border: "2px solid white",
+    top: 4,
+  };
+
+  const trackStyle = {
+    backgroundColor: "#222222",
+  };
+
   return (
     <div>
       <Range
+        range={true}
+        min={MIN}
+        max={MAX}
+        step={STEP}
+        defaultValue={[MIN, MAX]}
+        onChange={(e: number[] | number) => {
+          if (!Array.isArray(e)) return;
+          setNewValues(e);
+          setValues(e);
+        }}
+        handleStyle={handleStyle}
+        trackStyle={trackStyle}
+        dots={false}
+      />
+      {/* <Range
         values={values}
         step={STEP}
         min={MIN}
@@ -87,7 +118,7 @@ export function FilterRange({
             />
           </div>
         )}
-      />
+      /> */}
     </div>
   );
 }
