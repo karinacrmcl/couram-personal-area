@@ -150,6 +150,16 @@ export default function GlobalSelector({ id }: { id: string }) {
         </svg>
       );
 
+    case "plus":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            fill="#222222"
+            d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
+          />
+        </svg>
+      );
+
     case "empty":
       return (
         <svg
@@ -391,6 +401,229 @@ export default function GlobalSelector({ id }: { id: string }) {
         </svg>
       );
 
+    case "loader":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100px"
+          height="100px"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
+          <circle cx="75" cy="50" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.9166666666666666s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.9166666666666666s"
+            ></animate>
+          </circle>
+          <circle cx="71.65063509461098" cy="62.5" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.8333333333333334s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.8333333333333334s"
+            ></animate>
+          </circle>
+          <circle cx="62.5" cy="71.65063509461096" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.75s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.75s"
+            ></animate>
+          </circle>
+          <circle cx="50" cy="75" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.6666666666666666s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.6666666666666666s"
+            ></animate>
+          </circle>
+          <circle
+            cx="37.50000000000001"
+            cy="71.65063509461098"
+            fill="#818181"
+            r="4"
+          >
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.5833333333333334s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.5833333333333334s"
+            ></animate>
+          </circle>
+          <circle cx="28.34936490538903" cy="62.5" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.5s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.5s"
+            ></animate>
+          </circle>
+          <circle cx="25" cy="50" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.4166666666666667s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.4166666666666667s"
+            ></animate>
+          </circle>
+          <circle
+            cx="28.34936490538903"
+            cy="37.50000000000001"
+            fill="#818181"
+            r="4"
+          >
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.3333333333333333s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.3333333333333333s"
+            ></animate>
+          </circle>
+          <circle
+            cx="37.499999999999986"
+            cy="28.349364905389038"
+            fill="#818181"
+            r="4"
+          >
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.25s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.25s"
+            ></animate>
+          </circle>
+          <circle cx="49.99999999999999" cy="25" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.16666666666666666s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.16666666666666666s"
+            ></animate>
+          </circle>
+          <circle cx="62.5" cy="28.349364905389034" fill="#818181" r="4">
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="-0.08333333333333333s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="-0.08333333333333333s"
+            ></animate>
+          </circle>
+          <circle
+            cx="71.65063509461096"
+            cy="37.499999999999986"
+            fill="#818181"
+            r="4"
+          >
+            <animate
+              attributeName="r"
+              values="2.4;2.4;4;2.4;2.4"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="0s"
+            ></animate>
+            <animate
+              attributeName="fill"
+              values="#818181;#818181;#818181;#818181;#818181"
+              repeatCount="indefinite"
+              dur="1s"
+              begin="0s"
+            ></animate>
+          </circle>
+        </svg>
+      );
     default:
       return <p></p>;
   }
