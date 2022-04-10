@@ -2,8 +2,8 @@ import { createContext, ReactNode, useContext } from "react";
 
 export type Options = {
   name: string | null;
-  area: number[] | null;
-  population: number[] | null;
+  area: number[] | [];
+  population: number[] | [];
 };
 
 type ContextState = {

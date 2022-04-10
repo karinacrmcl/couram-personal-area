@@ -9,8 +9,8 @@ type Props = {
 export default function SearchProvider({ children }: Props) {
   const [searchTerm, setSearchTerm] = useState<Options>({
     name: null,
-    area: null,
-    population: null,
+    area: [],
+    population: [],
   });
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
