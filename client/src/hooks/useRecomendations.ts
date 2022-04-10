@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export function useRecomendations() {
-  let bar: any = {};
-  const [recomendations, setRecomendations] = useState(bar);
+  const [recomendations, setRecomendations] = useState<{
+    data: [];
+  } | null>(null);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/recomendations`, {
