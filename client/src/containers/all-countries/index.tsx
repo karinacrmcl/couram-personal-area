@@ -1,13 +1,16 @@
 import React from "react";
-import { CurrentCountryInfo } from "../../components/current-country-info";
-import { CurrentCountryAddition } from "../../components/current-country-media";
+import { CountryCard } from "../../components/country-card";
 import { useExtendedInfoContext } from "../../context/extended-info";
+import { useCountries } from "../../hooks/useCountries";
 import { SectionLayout } from "../../layouts/section";
-import CurrentCountryProvider from "../../provider/current-country";
-import { TransitionWrapper } from "../../shared/components/transition";
+import { CountryBasicInfo } from "../../types/country";
+
+import s from "./all-countries.module.scss";
 
 export function AllCountriesContainer() {
   const { isExtendedOpen } = useExtendedInfoContext();
+
+  const countryList = useCountries();
 
   const transitionStyles = {
     entering: { opacity: 1, zIndex: 1 },
@@ -17,19 +20,12 @@ export function AllCountriesContainer() {
   };
 
   return (
-    <div></div>
-    // <CurrentCountryProvider>
-    //   <SectionLayout title="Today's country">
-    //     <CurrentCountryInfo />
-    //     <TransitionWrapper
-    //       state={isExtendedOpen}
-    //       duration={400}
-    //       transitionStyles={transitionStyles}
-    //       styles={{ height: "500px" }}
-    //     >
-    //       <CurrentCountryAddition />
-    //     </TransitionWrapper>
-    //   </SectionLayout>
-    // </CurrentCountryProvider>
+    <SectionLayout title="All countries">
+      <div className={s.allcountries}>
+        {countryList?.data?.map((item: CountryBasicInfo) => {
+          return <CountryCard key={item.id} item={item} />;
+        })}
+      </div>
+    </SectionLayout>
   );
 }
