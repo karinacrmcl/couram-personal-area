@@ -1,0 +1,91 @@
+.countrycard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  height: 100%;
+  transition: all 0.3s;
+  &_expanded {
+    // justify-content: flex-end;
+    // flex-direction: row;
+    align-items: flex-end;
+    transition: all 0.3s;
+  }
+
+  &_content {
+    width: 95%;
+    height: 30%;
+
+    font-family: "Epilogue";
+    position: relative;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    color: #222222;
+
+    padding: 20px;
+    margin: 10px;
+
+    border-radius: 25px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.19);
+    transition: all 0.3s;
+
+    &_body {
+      opacity: 1;
+      height: fit-content;
+      transition: 0.4s;
+      &_hidden {
+        opacity: 0;
+        height: 0px;
+      }
+    }
+
+    &_expanded {
+      height: 100%;
+      width: 50%;
+      transition: all 0.3s;
+    }
+
+    & h3 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 142.5%;
+
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      margin: 10px 0 0 0;
+      padding: 0;
+    }
+
+    & p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 142.5%;
+
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      margin: 10px 0;
+      padding: 0;
+    }
+  }
+
+  &_shadow {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(
+      360deg,
+      #000000 1.32%,
+      rgba(0, 0, 0, 0.83) 18.28%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    z-index: 2;
+  }
+}
