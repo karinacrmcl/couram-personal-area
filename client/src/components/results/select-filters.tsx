@@ -3,6 +3,7 @@ import { Dropdown } from "../../shared/components/dropdown";
 import { FilterRange } from "../../shared/components/range";
 
 export type FilterItem = {
+  searchKey: string;
   id: Key | null | undefined;
   minValue: number;
   maxValue: number;
@@ -15,7 +16,7 @@ export type FilterItem = {
 
 type FilterOptions = {
   item: FilterItem;
-  onUpdate: (values: number[]) => void;
+  onUpdate: (key: string, values: number[]) => void;
 };
 
 export function SelectFilters({ item, onUpdate }: FilterOptions) {
@@ -28,7 +29,7 @@ export function SelectFilters({ item, onUpdate }: FilterOptions) {
 
   function handleOpen() {
     setIsDropdownOpen(!isDropdownOpen);
-    onUpdate(values);
+    onUpdate(item.searchKey, values);
   }
 
   return (
