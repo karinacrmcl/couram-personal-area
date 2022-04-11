@@ -1,11 +1,16 @@
 import React from "react";
 import { Search } from "../../components/search";
+import { useCurrentCountryContext } from "../../context/current-country";
 import { SectionLayout } from "../../layouts/section";
 
-export function SearchContainer() {
+type Props = {};
+
+export function SearchContainer({}: Props) {
+  const { country } = useCurrentCountryContext();
+
   return (
     <SectionLayout title="Search">
-      <Search />
+      <Search bgUrl={country?.coverPhoto?.largeUrl} />
     </SectionLayout>
   );
 }

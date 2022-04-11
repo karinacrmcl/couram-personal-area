@@ -8,21 +8,21 @@ import s from "./search.module.scss";
 import { useCurrentCountryContext } from "../../context/current-country";
 import { useSearchContext } from "../../context/search";
 
-type Props = {};
+type Props = {
+  bgUrl: string;
+};
 
-export function Search(props: Props) {
+export function Search({ bgUrl }: Props) {
   const [value, setValue] = useState("");
   const { searchTerm, setSearchTerm } = useSearchContext();
 
-  const isMobile = useMediaQuery({ maxWidth: "700px" });
   const isMobileXS = useMediaQuery({ maxWidth: "600px" });
-  const context = useCurrentCountryContext();
 
   return (
     <div className={s.search}>
       <CardLayout
         type="large"
-        bgUrl={context?.country?.coverPhoto?.largeUrl}
+        bgUrl={bgUrl}
         styles={{ width: "100%", height: "250px" }}
       >
         <div className={s.search_content}>
