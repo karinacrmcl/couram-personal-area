@@ -1,12 +1,11 @@
-import classNames from "classnames";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchContext } from "../../context/search";
 import { useCountries } from "../../hooks/useCountries";
-import { Dropdown } from "../../shared/components/dropdown";
-import { FilterRange } from "../../shared/components/range";
-import { filterParams } from "../../shared/constants/searchFilters";
+import { filterParams } from "../../shared/constants/search-filters";
+import GlobalSelector from "../../shared/icons/svg-selector";
 import { CountryBasicInfo } from "../../types/country";
-import { numberWithCommas } from "../../utils/splitNumber";
+import { inRange } from "../../utils/in-range";
+import { numberWithCommas } from "../../utils/split-number";
 import s from "./results.module.scss";
 import { FilterItem, SelectFilters } from "./select-filters";
 
@@ -14,15 +13,44 @@ type Props = {};
 
 export function Results(props: Props) {
   const countryList = useCountries();
-  const previewList = countryList?.data?.slice(0, 10);
-
+  const [currentArray, setCurrentArray] = useState([]);
   const { searchTerm, setSearchTerm } = useSearchContext();
 
-  function updateSearch(values: number[]) {
-    setSearchTerm({ ...searchTerm, area: values });
+  function updateSearch(key: string, values: number[]) {
+    setSearchTerm({
+      ...searchTerm,
+      [key]: values,
+    });
   }
 
-  console.log(searchTerm);
+  function checkName(name: string | null, searchTerm: string | null) {
+    if (searchTerm === " " || "") return;
+
+    if (searchTerm && name !== null) {
+      return name.toLocaleLowerCase() === searchTerm.toLocaleLowerCase();
+    } else {
+      return true;
+    }
+  }
+
+  useEffect(() => {
+    setCurrentArray(countryList?.data?.slice(0, 10));
+  }, [countryList]);
+
+  useEffect(() => {
+    function updateResults() {
+      console.log(countryList);
+      const newArr = countryList?.data?.filter((country: CountryBasicInfo) => {
+        return (
+          inRange(country.population, searchTerm.population) &&
+          inRange(country.totalSize, searchTerm.area) &&
+          checkName(country.name, searchTerm?.name)
+        );
+      });
+      setCurrentArray(newArr);
+    }
+    updateResults();
+  }, [searchTerm]);
 
   return (
     <div className={s.results}>
@@ -34,7 +62,7 @@ export function Results(props: Props) {
               <SelectFilters
                 item={item}
                 key={item.id}
-                onUpdate={(values) => updateSearch(values)}
+                onUpdate={(key, values) => updateSearch(key, values)}
               />
             );
           })}
@@ -47,23 +75,26 @@ export function Results(props: Props) {
           <th>Population</th>
         </thead>
         <tbody>
-          {previewList?.map((item: CountryBasicInfo) => {
-            return (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>
-                  {numberWithCommas(item.totalSize)}
-                  <span>km²</span>
-                </td>
-                <td>{numberWithCommas(item.population)}</td>
-              </tr>
-            );
-          })}
+          {currentArray?.length === 0 ? (
+            <p>Nothing found</p>
+          ) : !currentArray ? (
+            <GlobalSelector id="loader" />
+          ) : (
+            currentArray.map((item: CountryBasicInfo) => {
+              return (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>
+                    {numberWithCommas(item.totalSize)}
+                    <span>km²</span>
+                  </td>
+                  <td>{numberWithCommas(item.population)}</td>
+                </tr>
+              );
+            })
+          )}
         </tbody>
       </table>
     </div>
   );
-}
-function values(item: FilterItem, values: any) {
-  throw new Error("Function not implemented.");
 }

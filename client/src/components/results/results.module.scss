@@ -78,6 +78,21 @@
       flex-direction: column;
       grid-gap: 25px;
       margin-top: 20px;
+
+      & svg {
+        margin: 0 auto;
+      }
+
+      & p {
+        font-family: "Epilogue";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 142.5%;
+
+        color: #222222;
+      }
+
       & tr {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
