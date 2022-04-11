@@ -9,9 +9,9 @@ import { checkStoredIds, storeId } from "../../utils/local-storage";
 import { structureCountryData } from "../../utils/structure-current-country";
 import { structureWeatherData } from "../../utils/structure-state-data";
 import s from "./favourite.module.scss";
-import SvgSelector from "../current-country-info/svg-selector";
 import { TransitionWrapper } from "../../shared/components/transition";
 import { CountryBasicInfo } from "../../types/country";
+import { formatString } from "../../utils/format-string";
 
 type Props = {
   item: {
@@ -27,11 +27,8 @@ export function FavouriteItem({ item }: Props) {
 
   const weather = useCityWeather(country?.capital);
 
-  const { countryBasicInfo, countryStats, coverPhoto } =
-    structureCountryData(country);
+  const { countryBasicInfo, coverPhoto } = structureCountryData(country);
   const { degrees, time, date } = structureWeatherData(weather);
-  const formattedText =
-    country.content.overview.body.split("").slice(0, 650).join("") + "...";
   const { isExtendedOpen, id, setIsExtendedOpen, setId } =
     useExtendedInfoContext();
 
@@ -91,8 +88,10 @@ export function FavouriteItem({ item }: Props) {
                     </div>
                   </div>
                 </div>
-
-                <div className={s.favourite_text}>{formattedText}</div>
+                ы
+                <div className={s.favourite_text}>
+                  {formatString(country.content.overview.body, 650)}
+                </div>
               </div>
             </TransitionWrapper>
 
