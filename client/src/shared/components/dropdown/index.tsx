@@ -1,6 +1,6 @@
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 import s from "./dropdown.module.scss";
-import React, { ReactNode } from "react";
 import GlobalSelector from "../../icons/svg-selector";
 import { numberWithCommas } from "../../../utils/split-number";
 

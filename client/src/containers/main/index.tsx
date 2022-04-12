@@ -1,10 +1,11 @@
 import React from "react";
 import { CurrentCountryInfo } from "../../components/current-country-info";
 import { CurrentCountryAddition } from "../../components/current-country-media";
-import { useExtendedInfoContext } from "../../context/extended-info";
 import { SectionLayout } from "../../layouts/section";
-import CurrentCountryProvider from "../../provider/current-country";
 import { TransitionWrapper } from "../../shared/components/transition";
+
+import { useExtendedInfoContext } from "../../context/extended-info";
+import CurrentCountryProvider from "../../provider/current-country";
 
 export function MainContainer() {
   const { isExtendedOpen } = useExtendedInfoContext();

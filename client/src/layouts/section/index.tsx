@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { useExtendedInfoContext } from "../../context/extended-info";
 import { TransitionWrapper } from "../../shared/components/transition";
 import s from "./section.module.scss";

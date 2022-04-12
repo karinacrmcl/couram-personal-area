@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import s from "./video-player.module.scss";
-import ReactPlayer from "react-player";
-import GlobalSelector from "../../shared/icons/svg-selector";
 import { useModalContext } from "../../context/modal";
+
+import ReactPlayer from "react-player";
+
+import GlobalSelector from "../../shared/icons/svg-selector";
+import s from "./video-player.module.scss";
 
 type Props = {
   url: string;

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Button } from "../../shared/components/button";
+
 import SvgSelector from "../current-country-media/svg-selector";
 import s from "./map.module.scss";
 

@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Search } from "../../components/search";
-import { useCurrentCountryContext } from "../../context/current-country";
 import { SectionLayout } from "../../layouts/section";
+
+import { useCurrentCountryContext } from "../../context/current-country";
 
 type Props = {};
 

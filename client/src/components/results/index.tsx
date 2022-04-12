@@ -24,8 +24,11 @@ export function Results(props: Props) {
   }
 
   function checkName(name: string | null, searchTerm: string | null) {
-    if (searchTerm === " " || "") return;
-
+    if (searchTerm != null) {
+      if (/^\s*$/.test(searchTerm)) return true;
+    } else {
+      return true;
+    }
     if (searchTerm && name !== null) {
       return name.toLocaleLowerCase() === searchTerm.toLocaleLowerCase();
     } else {

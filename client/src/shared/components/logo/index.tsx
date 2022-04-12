@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./logo.module.scss";
 
-type Props = {};
-
-export function Logo(props: Props) {
+export function Logo() {
   return (
     <Link to="/">
       <div className={s.logo}>

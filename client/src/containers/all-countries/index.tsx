@@ -1,9 +1,10 @@
 import React from "react";
 import { CountryCard } from "../../components/country-card";
-import { useExtendedInfoContext } from "../../context/extended-info";
-import { useCountries } from "../../hooks/useCountries";
 import { SectionLayout } from "../../layouts/section";
 import { CountryBasicInfo } from "../../types/country";
+
+import { useExtendedInfoContext } from "../../context/extended-info";
+import { useCountries } from "../../hooks/useCountries";
 
 import s from "./all-countries.module.scss";
 

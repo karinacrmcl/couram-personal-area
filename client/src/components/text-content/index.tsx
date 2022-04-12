@@ -1,4 +1,5 @@
 import React from "react";
+
 import s from "./text-content.module.scss";
 
 type Props = {

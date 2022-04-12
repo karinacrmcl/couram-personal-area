@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+
 import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
-import { Select } from "../../shared/components/select";
-import GlobalSelector from "../../shared/icons/svg-selector";
+
 import { useMediaQuery } from "react-responsive";
-import s from "./search.module.scss";
-import { useCurrentCountryContext } from "../../context/current-country";
 import { useSearchContext } from "../../context/search";
+
+import s from "./search.module.scss";
+import GlobalSelector from "../../shared/icons/svg-selector";
 
 type Props = {
   bgUrl: string;

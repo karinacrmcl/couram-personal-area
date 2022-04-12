@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import React, { useState } from "react";
-import { useExtendedInfoContext } from "../../context/extended-info";
+
 import { CardLayout } from "../../layouts/card";
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
-import { TransitionWrapper } from "../../shared/components/transition";
-import GlobalSelector from "../../shared/icons/svg-selector";
+
 import { CountryBasicInfo } from "../../types/country";
-import { formatString } from "../../utils/format-string";
 import { checkStoredIds, storeId } from "../../utils/local-storage";
+
+import GlobalSelector from "../../shared/icons/svg-selector";
 import s from "./country-card.module.scss";
 
 type Props = {
@@ -16,18 +16,6 @@ type Props = {
 };
 
 export function CountryCard({ item }: Props) {
-  const transitionStyles = {
-    entering: { opacity: 1, zIndex: 1 },
-    entered: { opacity: 1, zIndex: 1 },
-    exiting: { opacity: 0, height: 0 },
-    exited: {
-      opacity: 0,
-      zIndex: -100,
-      height: 0,
-      display: "none",
-    },
-  };
-
   const [isExpanded, setisExpanded] = useState(false);
 
   return (

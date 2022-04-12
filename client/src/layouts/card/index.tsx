@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import React, { CSSProperties, ReactNode } from "react";
+import classNames from "classnames";
 import s from "./card.module.scss";
 
 type Props = {

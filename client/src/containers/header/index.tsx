@@ -1,8 +1,11 @@
 import React from "react";
-import { useLocation } from "react-router";
+
 import { Menu } from "../../components/menu";
 import { Logo } from "../../shared/components/logo";
+
+import { useLocation } from "react-router";
 import { checkPath } from "../../utils/check-path";
+
 import classNames from "classnames";
 import s from "./header.module.scss";
 

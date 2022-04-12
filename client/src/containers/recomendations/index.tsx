@@ -1,15 +1,17 @@
 import React from "react";
 import { RecomendedCountry } from "../../components/recomended-country";
+import { TransitionWrapper } from "../../shared/components/transition";
 import { SectionLayout } from "../../layouts/section";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import SwiperCore, { Navigation } from "swiper";
+
 import { useMediaQuery } from "react-responsive";
 import { useRecomendations } from "../../hooks/useRecomendations";
-import { CountryBasicInfo } from "../../types/country";
-import { TransitionWrapper } from "../../shared/components/transition";
 import { useExtendedInfoContext } from "../../context/extended-info";
+import { CountryBasicInfo } from "../../types/country";
+
 import "../../shared/styles/swiper.scss";
 SwiperCore.use([Navigation]);
 

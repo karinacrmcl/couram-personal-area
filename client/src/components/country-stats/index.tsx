@@ -1,7 +1,10 @@
 import React from "react";
-import { CountryFullInfo } from "../../types/country";
-import { structureCountryData } from "../../utils/structure-current-country";
+
 import s from "./country-stats.module.scss";
+
+import { structureCountryData } from "../../utils/structure-current-country";
+import { CountryFullInfo } from "../../types/country";
+
 import SvgSelector from "./svg-selector";
 
 type Props = {

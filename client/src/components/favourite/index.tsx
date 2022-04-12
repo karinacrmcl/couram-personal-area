@@ -1,17 +1,21 @@
+import { CardLayout } from "../../layouts/card";
+
 import { useMediaQuery } from "react-responsive";
 import { useExtendedInfoContext } from "../../context/extended-info";
 import { useCityWeather } from "../../hooks/useCityWeather";
-import { CardLayout } from "../../layouts/card";
+
 import { Button } from "../../shared/components/button";
 import { Favourite } from "../../shared/components/favourite";
-import GlobalSelector from "../../shared/icons/svg-selector";
-import { checkStoredIds, storeId } from "../../utils/local-storage";
-import { structureCountryData } from "../../utils/structure-current-country";
-import { structureWeatherData } from "../../utils/structure-state-data";
-import s from "./favourite.module.scss";
 import { TransitionWrapper } from "../../shared/components/transition";
-import { CountryBasicInfo } from "../../types/country";
+
 import { formatString } from "../../utils/format-string";
+import { structureWeatherData } from "../../utils/structure-state-data";
+import { structureCountryData } from "../../utils/structure-current-country";
+import { checkStoredIds, storeId } from "../../utils/local-storage";
+import { CountryBasicInfo } from "../../types/country";
+
+import GlobalSelector from "../../shared/icons/svg-selector";
+import s from "./favourite.module.scss";
 
 type Props = {
   item: {

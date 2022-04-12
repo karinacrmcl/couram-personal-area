@@ -1,17 +1,21 @@
+import s from "./country.module.scss";
+
+import { CardLayout } from "../../layouts/card";
+import { Button } from "../../shared/components/button";
+import { Favourite } from "../../shared/components/favourite";
+import { TransitionWrapper } from "../../shared/components/transition";
+
+import { checkStoredIds, storeId } from "../../utils/local-storage";
+import { structureCountryData } from "../../utils/structure-current-country";
+import { structureWeatherData } from "../../utils/structure-state-data";
+
 import { useMediaQuery } from "react-responsive";
 import { useCurrentCountryContext } from "../../context/current-country";
 import { useExtendedInfoContext } from "../../context/extended-info";
 import { useCityWeather } from "../../hooks/useCityWeather";
-import { CardLayout } from "../../layouts/card";
-import { Button } from "../../shared/components/button";
-import { Favourite } from "../../shared/components/favourite";
+
 import GlobalSelector from "../../shared/icons/svg-selector";
-import { checkStoredIds, storeId } from "../../utils/local-storage";
-import { structureCountryData } from "../../utils/structure-current-country";
-import { structureWeatherData } from "../../utils/structure-state-data";
-import s from "./country.module.scss";
 import SvgSelector from "./svg-selector";
-import { TransitionWrapper } from "../../shared/components/transition";
 
 export function CurrentCountryInfo() {
   const isTablet = useMediaQuery({ maxWidth: "950px" });

@@ -1,14 +1,18 @@
 import React from "react";
+
 import { useMediaQuery } from "react-responsive";
 import { useExtendedInfoContext } from "../../context/extended-info";
 import { useCityWeather } from "../../hooks/useCityWeather";
+
 import { CardLayout } from "../../layouts/card";
 import { Favourite } from "../../shared/components/favourite";
-import GlobalSelector from "../../shared/icons/svg-selector";
+
 import { CountryBasicInfo } from "../../types/country";
 import { checkStoredIds, storeId } from "../../utils/local-storage";
 import { structureWeatherData } from "../../utils/structure-state-data";
+
 import s from "./country.module.scss";
+import GlobalSelector from "../../shared/icons/svg-selector";
 
 type Props = {
   item: CountryBasicInfo;

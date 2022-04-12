@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { CountryFullInfo } from "../types/country";
 
 export function useFavourites(ids: number[]) {
   const [favourites, setFavourites] = useState([]);

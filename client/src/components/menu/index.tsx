@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "../../shared/components/button";
-import s from "./menu.module.scss";
-import { Transition } from "react-transition-group";
-import GlobalSelector from "../../shared/icons/svg-selector";
 import { useMediaQuery } from "react-responsive";
 
-type Props = {};
+import { Link } from "react-router-dom";
+import { Transition } from "react-transition-group";
+import { Button } from "../../shared/components/button";
 
-export function Menu(props: Props) {
+import s from "./menu.module.scss";
+import GlobalSelector from "../../shared/icons/svg-selector";
+
+export function Menu() {
   const isMobile = useMediaQuery({ maxWidth: "850px" });
   const isMobileXS = useMediaQuery({ maxWidth: "650px" });
   const [isOpen, setIsOpen] = useState(isMobile ? false : true);

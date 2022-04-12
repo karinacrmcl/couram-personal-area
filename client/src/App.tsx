@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Router, Routes, useLocation } from "react-router";
-import { Menu } from "./components/menu";
+import { Route, Routes } from "react-router";
 import HeaderContainer from "./containers/header";
 import AllCountries from "./pages/all-countries";
 import ExploreMore from "./pages/explore";

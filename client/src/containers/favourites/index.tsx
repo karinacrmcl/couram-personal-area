@@ -1,13 +1,15 @@
 import React from "react";
-import { FavouriteItem } from "../../components/favourite";
-import { useFavourites } from "../../hooks/useFavourites";
-import { SectionLayout } from "../../layouts/section";
-import GlobalSelector from "../../shared/icons/svg-selector";
-import { getStoredIds } from "../../utils/local-storage";
-import s from "./favourites.module.scss";
-type Props = {};
 
-export function FavouritesContainer(props: Props) {
+import { FavouriteItem } from "../../components/favourite";
+import { SectionLayout } from "../../layouts/section";
+
+import { useFavourites } from "../../hooks/useFavourites";
+import { getStoredIds } from "../../utils/local-storage";
+
+import s from "./favourites.module.scss";
+import GlobalSelector from "../../shared/icons/svg-selector";
+
+export function FavouritesContainer() {
   const ids = getStoredIds();
   const favourites = useFavourites(ids);
 

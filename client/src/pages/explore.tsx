@@ -6,11 +6,11 @@ import SearchProvider from "../provider/search";
 
 export default function ExploreMore() {
   return (
-    <CurrentCountryProvider>
-      <SearchProvider>
+    <SearchProvider>
+      <CurrentCountryProvider>
         <SearchContainer />
-        <ResultsContainer />
-      </SearchProvider>
-    </CurrentCountryProvider>
+      </CurrentCountryProvider>
+      <ResultsContainer />
+    </SearchProvider>
   );
 }
