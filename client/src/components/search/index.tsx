@@ -42,15 +42,7 @@ export function Search({ bgUrl }: Props) {
           onChange={(e) => setValue(e.target.value)}
         />
         <hr />
-        {/* {!isMobile && (
-          <>
-            <GlobalSelector id="location" />
-            <Select
-              defaultValue={{ value: "San Francisco, USA" }}
-              items={items}
-            />
-          </>
-        )} */}
+
         {!isMobileXS && (
           <Button
             size="small"
