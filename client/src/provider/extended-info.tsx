@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useCallback, useEffect } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { ExtendedInfoContext } from "../context/extended-info";
 

@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { CurrentCountryContext } from "../context/current-country";
-import { useCityWeather } from "../hooks/useCityWeather";
 import { useCurrentCountry } from "../hooks/useCurrentCountry";
 
 type Props = {
