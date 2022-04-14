@@ -43,7 +43,6 @@ export function SelectFilters({ item, onUpdate }: FilterOptions) {
       <FilterRange
         minValue={item.minValue}
         maxValue={item.maxValue}
-        defValues={values}
         setNewValues={handleSetValues}
         step={item.step}
       />

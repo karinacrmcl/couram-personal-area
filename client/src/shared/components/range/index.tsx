@@ -6,21 +6,13 @@ type Props = {
   minValue: number;
   maxValue: number;
   step: number;
-  defValues: number[];
   setNewValues: (items: number[]) => void;
 };
 
-export function FilterRange({
-  minValue,
-  maxValue,
-  step,
-  defValues,
-  setNewValues,
-}: Props) {
+export function FilterRange({ minValue, maxValue, step, setNewValues }: Props) {
   const STEP = step;
   const MIN = minValue;
   const MAX = maxValue;
-  const [values, setValues] = useState(defValues);
 
   const handleStyle = {
     backgroundColor: "#222222",
@@ -46,7 +38,6 @@ export function FilterRange({
         onChange={(e: number[] | number) => {
           if (!Array.isArray(e)) return;
           setNewValues(e);
-          setValues(e);
         }}
         handleStyle={handleStyle}
         trackStyle={trackStyle}
