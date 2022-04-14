@@ -18,7 +18,6 @@ export function FavouritesContainer() {
       <div className={s.favourites}>
         {favourites.length > 0 ? (
           favourites.map((item) => {
-            console.log(item);
             return <FavouriteItem item={item} />;
           })
         ) : (

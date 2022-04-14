@@ -5,9 +5,7 @@ import { SectionLayout } from "../../layouts/section";
 
 import { useCurrentCountryContext } from "../../context/current-country";
 
-type Props = {};
-
-export function SearchContainer({}: Props) {
+export function SearchContainer() {
   const { country } = useCurrentCountryContext();
 
   return (

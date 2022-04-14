@@ -3,22 +3,12 @@ import { CountryCard } from "../../components/country-card";
 import { SectionLayout } from "../../layouts/section";
 import { CountryBasicInfo } from "../../types/country";
 
-import { useExtendedInfoContext } from "../../context/extended-info";
 import { useCountries } from "../../hooks/useCountries";
 
 import s from "./all-countries.module.scss";
 
 export function AllCountriesContainer() {
-  const { isExtendedOpen } = useExtendedInfoContext();
-
   const countryList = useCountries();
-
-  const transitionStyles = {
-    entering: { opacity: 1, zIndex: 1 },
-    entered: { opacity: 1, zIndex: 1 },
-    exiting: { opacity: 0, height: 0 },
-    exited: { opacity: 0, zIndex: -100, height: 0 },
-  };
 
   return (
     <SectionLayout title="All countries">

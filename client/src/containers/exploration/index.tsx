@@ -10,9 +10,7 @@ import { useCountry } from "../../hooks/useCountry";
 
 import s from "./exploration.module.scss";
 
-type Props = {};
-
-export function ExplorationContainer({}: Props) {
+export function ExplorationContainer() {
   const { id } = useExtendedInfoContext();
   const response = useCountry(id);
   const country = response?.data?.[0];
