@@ -18,7 +18,8 @@
     "ts-node": "^10.7.0"
   },
   "engines": {
-    "node": "17.x"
+    "node": "17.x",
+    "npm": "8.x"
   },
   "devDependencies": {
     "@types/config": "^0.0.41",
