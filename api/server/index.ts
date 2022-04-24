@@ -22,11 +22,12 @@ app.listen(PORT, () => {
 const publicPath = path.join(__dirname, "..", "..", "client", "public");
 
 app.use(express.static(publicPath));
+console.log(publicPath);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
 
-app.get("/", function (req, res) {
-  res.json({ message: `Server listening on ${PORT}` });
-});
+// app.get("/", function (req, res) {
+//   res.json({ message: `Server listening on ${PORT}` });
+// });
