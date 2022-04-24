@@ -2,7 +2,8 @@
   "dependencies": {
     "@types/mongoose": "^5.11.97",
     "@types/pino": "^7.0.5",
-    "@types/react-transition-group": "^4.4.4"
+    "@types/react-transition-group": "^4.4.4",
+    "ts-node": "^10.7.0"
   },
   "devDependencies": {
     "@types/config": "^0.0.41"
