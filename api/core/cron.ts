@@ -3,8 +3,7 @@ import { db } from "../database/createConnection";
 import { Country } from "../model/country.model";
 
 export const job = new CronJob(
-  "0 */2 * * *", //every 6 hours
-  // 0 0 0 * * * every midnight
+  "0 0 0 * * *",
   async function () {
     const countries = await Country.find({});
 
