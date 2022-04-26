@@ -37,7 +37,7 @@ export function TransitionWrapper({
   };
 
   return (
-    <Transition in={!state} timeout={duration}>
+    <Transition in={state} timeout={duration}>
       {(state: keyof State) => (
         <div
           style={{
