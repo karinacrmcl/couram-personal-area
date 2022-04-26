@@ -19,7 +19,7 @@ app.listen(PORT, () => {
   job.start();
 });
 
-const publicPath = path.join(__dirname, "..", "..", "client", "public");
+const publicPath = path.join(__dirname, "..", "..", "client", "build");
 
 app.use(express.static(publicPath));
 console.log("**********************", publicPath);
