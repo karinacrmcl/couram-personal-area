@@ -13,10 +13,11 @@ export const job = new CronJob(
       { id: "countryID" },
       {
         $set: {
-          currentCountryId:
-            response.currentCountryId <= countries.length - 1
+          currentCountryId: response
+            ? response.currentCountryId <= countries.length - 1
               ? ++response.currentCountryId
-              : 1,
+              : 1
+            : 1,
         },
       }
     );

@@ -2,8 +2,8 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import { attachPrivateRoutes } from "./routes";
-import { createConnection } from "../database/createConnection";
-import { job } from "../core/cron";
+import { createConnection } from "./database/createConnection";
+import { job } from "./core/cron";
 import path from "path";
 
 const PORT = process.env.PORT || 3001;
