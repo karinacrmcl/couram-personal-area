@@ -1,7 +1,7 @@
-import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
+import "dotenv/config";
 import { attachPrivateRoutes } from "./routes";
 import { createConnection } from "./database/createConnection";
 import { job } from "./core/cron";
