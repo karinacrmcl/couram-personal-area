@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node index.ts",
     "build": "react-scripts build",
-    "heroku-postbuild": "cd ../client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
