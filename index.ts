@@ -11,9 +11,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
 
-const publicPath = path.join(__dirname, "client", "build");
+const publicPath = path.join(__dirname, "build");
 
 app.use(express.static(publicPath));
+
+console.log(publicPath);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
