@@ -28,6 +28,7 @@
     "sass-loader": "^12.4.0",
     "scss": "^0.2.4",
     "swiper": "^7.4.1",
+    "ts-node": "^10.7.0",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
