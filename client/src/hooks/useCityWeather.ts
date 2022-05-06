@@ -7,7 +7,7 @@ export function useCityWeather(name: string) {
   useEffect(() => {
     const getWeather = async () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/weather?cityName=${name}`, {
+        .get(`https://couram.herokuapp.com/weather?cityName=${name}`, {
           headers: {
             "Access-Control-Allow-Origin": "*",
           },

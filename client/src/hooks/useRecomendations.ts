@@ -7,7 +7,7 @@ export function useRecomendations() {
   } | null>(null);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/recomendations`, {
+      .get(`https://couram.herokuapp.com/recomendations`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },

@@ -7,7 +7,7 @@ export function useCountries() {
   useEffect(() => {
     async function getCountries() {
       return await axios
-        .get(`${process.env.REACT_APP_API_URL}/countries`, {
+        .get(`https://couram.herokuapp.com/countries`, {
           headers: {
             "Access-Control-Allow-Origin": "*",
           },
