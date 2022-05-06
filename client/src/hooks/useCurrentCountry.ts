@@ -6,7 +6,7 @@ export function useCurrentCountry() {
   const [country, setCountry] = useState(bar);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/current-country`, {
+      .get(`https://couram.herokuapp.com/current-country`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
