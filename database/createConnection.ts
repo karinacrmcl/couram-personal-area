@@ -3,9 +3,7 @@ import config from "config";
 import log from "../log/logger";
 
 export async function createConnection() {
-  const dbUri =
-    "mongodb+srv://perfechate:177242465820@cluster0.ybrcc.mongodb.net/couram?authSource=admin&replicaSet=atlas-sv8uld-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
-  //config.get("dbUri") as string;
+  const dbUri = config.get("dbUri") as string;
 
   return mongoose
     .connect(dbUri, {
