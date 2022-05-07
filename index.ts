@@ -6,7 +6,7 @@ import { attachPrivateRoutes } from "./routes";
 import { createConnection } from "./database/createConnection";
 import { job } from "./core/cron";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors());
